@@ -1,4 +1,4 @@
-from app import db
+from rec import db
 
 
 class Role(db.Model):
