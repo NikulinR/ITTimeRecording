@@ -1,0 +1,20 @@
+{% block content %}
+<title>ITTR</title>
+<h3 align="right">ITTimeRecording</h3>
+<hr>
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+{% for message in messages %}
+  <li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+
+{% block body %}
+
+{% endblock %}
