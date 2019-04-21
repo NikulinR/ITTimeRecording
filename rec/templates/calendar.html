@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/static/css/main.css" />
+<div class = "calendar">
+<form method="post">
+    <table border="1">
+        <tr>
+            <th colspan="7">{{ date.year }} year</th>
+        </tr>
+        <tr>
+            <th colspan="7">{{ date.month }} month</th>
+        </tr>
+        {% for week in cal %}
+            <tr>
+                {% for day in week %}
+                    <td>
+                    {% if  day.date == date.day %}
+                        <div class="today">
+                    {% endif %}
+                    {% if day.form == "Vacancy" %}
+                        <div class="vacancy">{{ day.date }}</div>
+                    {% endif %}
+                    {% if day.form == "Work" %}
+                        <div>{{ day.date }}</div>
+                    {% endif %}
+                    {% if  day.date == date.day %}
+                        </div>
+                    {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</form>
+</div>
