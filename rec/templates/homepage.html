@@ -4,11 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/static/css/main.css" />
 </head>
 {% block body %}
-<h1>Hello, {{ user }}</h1>
+    <body link="black">
+    <div class="hello"><h1>Hello, {{ user.username }}!</h1></div>
+    <div class="menu">
+    <ul>
+    {% for item in menu %}
+        <li>
+            <a href = '{{ user.role }}/{{ item[1] }}'>{{ item[0] }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    </div>
+    {% include "calendar.html" %}
     <form method="post">
-    <input type="submit" name="exit" value="exit" formaction="{{ url_for('rec.exit') }}">
+    <input class="exit" type="submit" name="exit" value="exit" formaction="{{ url_for('rec.exit') }}">
     </form>
+</body>
 {% endblock %}
+
+
 </html>
