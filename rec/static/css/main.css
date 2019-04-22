@@ -3,6 +3,25 @@ body{
 	font-family: Gothic;
 }
 
+.button{
+background-color: #D1C372;
+width: 150px;
+height: 55px;
+font-size: 25px;
+border-radius: 20px;
+}
+
+.autorization {
+  background: #AF93DF;
+  text-align: center;
+  margin-left: 500px;
+  margin-right: 500px;
+  padding: 20px;
+  font-size: 25px;
+  border-radius: 70px;
+  border: black solid 5px;
+}
+
 .error {
 	color: #dc2323;
 	text-align: right;

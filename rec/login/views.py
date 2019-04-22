@@ -58,7 +58,7 @@ def login():
             session['user_login'] = user.login
             session['date'] = datetime.date.today()
             g.date = datetime.date.today()
-            flash('Welcome %s' % user.login)
+            flash('Welcome, %s' % user.login)
             return redirect(url_for('rec.home'))
         flash('Wrong email or password', 'error-message')
     return render_template("login/login.html", form=form)
