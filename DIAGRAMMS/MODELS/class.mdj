@@ -1032,7 +1032,7 @@
 											"font": "Arial;13;1",
 											"left": 197,
 											"top": 343,
-											"width": 313.9423828125,
+											"width": 317.55419921875,
 											"height": 13,
 											"text": "Manager"
 										},
@@ -1067,7 +1067,7 @@
 									"font": "Arial;13;0",
 									"left": 192,
 									"top": 336,
-									"width": 323.9423828125,
+									"width": 327.55419921875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFqREclpmHo/T4="
@@ -1094,7 +1094,7 @@
 									"font": "Arial;13;0",
 									"left": 192,
 									"top": 361,
-									"width": 323.9423828125,
+									"width": 327.55419921875,
 									"height": 10
 								},
 								{
@@ -1119,7 +1119,7 @@
 											"font": "Arial;13;0",
 											"left": 197,
 											"top": 376,
-											"width": 313.9423828125,
+											"width": 317.55419921875,
 											"height": 13,
 											"text": "+get_stats()",
 											"horizontalAlignment": 0
@@ -1136,7 +1136,7 @@
 											"font": "Arial;13;0",
 											"left": 197,
 											"top": 391,
-											"width": 313.9423828125,
+											"width": 317.55419921875,
 											"height": 13,
 											"text": "+start_dev_day(dev: Developer)",
 											"horizontalAlignment": 0
@@ -1153,7 +1153,7 @@
 											"font": "Arial;13;0",
 											"left": 197,
 											"top": 406,
-											"width": 313.9423828125,
+											"width": 317.55419921875,
 											"height": 13,
 											"text": "+stop_dev_day(dev: Developer)",
 											"horizontalAlignment": 0
@@ -1170,16 +1170,16 @@
 											"font": "Arial;13;0",
 											"left": 197,
 											"top": 421,
-											"width": 313.9423828125,
+											"width": 317.55419921875,
 											"height": 13,
-											"text": "+change_activity(dev: Developer, acivity: varrchar(15))",
+											"text": "+change_activity(dev: Developer, activity: varchar(15))",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 192,
 									"top": 371,
-									"width": 323.9423828125,
+									"width": 327.55419921875,
 									"height": 68
 								},
 								{
@@ -1219,7 +1219,7 @@
 							"containerChangeable": true,
 							"left": 192,
 							"top": 336,
-							"width": 323.9423828125,
+							"width": 327.55419921875,
 							"height": 103,
 							"nameCompartment": {
 								"$ref": "AAAAAAFqREclpmHncOc="
@@ -1716,7 +1716,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 467,
+									"left": 468,
 									"top": 279,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -1737,7 +1737,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 458,
+									"left": 459,
 									"top": 267,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -1758,7 +1758,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 484,
+									"left": 485,
 									"top": 304,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -1777,7 +1777,7 @@
 								"$ref": "AAAAAAFqREclpWHmE6g="
 							},
 							"lineStyle": 1,
-							"points": "425:335;527:262",
+							"points": "427:335;527:262",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqREvh/WJy+hM="
@@ -1998,7 +1998,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 337,
+									"left": 338,
 									"top": 492,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2019,7 +2019,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 322,
+									"left": 323,
 									"top": 492,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2040,7 +2040,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 366,
+									"left": 367,
 									"top": 493,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -2059,7 +2059,7 @@
 								"$ref": "AAAAAAFqREdBLmIRJec="
 							},
 							"lineStyle": 1,
-							"points": "351:559;353:439",
+							"points": "352:559;354:439",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqREwcr2KlyzA="
@@ -2995,8 +2995,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFqRFfXz2y95aY="
 									},
-									"name": "acivity",
-									"type": "varrchar(15)"
+									"name": "activity",
+									"type": "varchar(15)"
 								}
 							]
 						}
