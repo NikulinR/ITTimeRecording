@@ -27,4 +27,12 @@ def main():
 
 
 import rec.login
+import rec.tools.Developer as dev
+import rec.tools.HR as hr
+import rec.tools.Manager as man
+import rec.tools.TopManager as tman
 app.register_blueprint(login.views.mod)
+app.register_blueprint(dev.views.mod)
+app.register_blueprint(hr.views.mod)
+app.register_blueprint(man.views.mod)
+app.register_blueprint(tman.views.mod)

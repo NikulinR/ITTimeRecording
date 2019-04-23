@@ -11,9 +11,11 @@
     <div class="hello"><h1>Hello, {{ user.username }}!</h1></div>
     <div class="menu">
     <ul>
+    {% set role = user.role %}
     {% for item in menu %}
         <li>
-            <a href = '{{ user.role }}/{{ item[1] }}'>{{ item[0] }}</a>
+            {% set url = role+"."+item[1] %}
+            <a href = {{ url_for(url)}}>{{ item[0] }}</a>
         </li>
     {% endfor %}
     </ul>

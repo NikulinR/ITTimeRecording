@@ -1,10 +1,10 @@
 body{
-	background-color: #c8bdd8;
+	background-color: #57FFC6;
 	font-family: Gothic;
 }
 
 .button{
-background-color: #D1C372;
+background-color: #FF6159;
 width: 150px;
 height: 55px;
 font-size: 25px;
@@ -12,10 +12,11 @@ border-radius: 20px;
 }
 
 .autorization {
-  background: #AF93DF;
+  background: #31ABCC;
   text-align: center;
-  margin-left: 500px;
-  margin-right: 500px;
+  width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   padding: 20px;
   font-size: 25px;
   border-radius: 70px;
@@ -23,7 +24,7 @@ border-radius: 20px;
 }
 
 .error {
-	color: #dc2323;
+	color: #FF6159;
 	text-align: right;
 	margin-top: 50px;
 	font-size: 30px;
@@ -38,12 +39,12 @@ border-radius: 20px;
 
 .menu li{
     font-size: 20px;
-    width: 170px;
-    background-color: aquamarine;
+    width: 200px;
+    background-color: #31ABCC;
     text-align: right;
     border: black solid 2px;
     border-radius: 4px;
-    border-left: #ff8d55 solid 20px;
+    border-left: #CC235A solid 20px;
     font-weight: bolder;
 }
 
@@ -54,18 +55,18 @@ border-radius: 20px;
 }
 
 .calendar .vacancy{
-	color: #dc2323;
+	color: #CC235A;
 }
 
 .calendar td{
-	background-color: rgba(0, 79, 119, 0.54);
+	background-color: #31ABCC;
 	font-size: 30px;
 	font-family: monospace;
 	font-weight: bold;
 }
 
 .calendar th{
-	background-color: rgba(0, 0, 119, 0.54);
+	background-color: #31CC6B;
 	font-size: 20px;
 	font-family: monospace;
 	font-weight: bold;
@@ -76,7 +77,7 @@ border-radius: 20px;
 }
 
 .exit{
-	background-color: rgba(153, 32, 3, 0.75);
+	background-color: #FF6159;
 	font-size: 20px;
 	font-family: monospace;
 	font-weight: bold;
