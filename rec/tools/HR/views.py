@@ -44,20 +44,43 @@ def before_request():
 
 @mod.route('/ViewRequests', methods=['GET', 'POST'])
 def ViewRequests():
-    return render_template("tools/HR/ViewRequests.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/HR/ViewRequests.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/Register', methods=['GET', 'POST'])
 def Register():
-    return render_template("tools/HR/Register.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/HR/Register.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/Delete', methods=['GET', 'POST'])
 def Delete():
-    return render_template("tools/HR/Delete.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/HR/Delete.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/Stats', methods=['GET', 'POST'])
 def Stats():
-    return render_template("tools/HR/Stats.html", user=g.user, menu=menu, date=date, cal=cal)
-
+    return render_template("tools/HR/Stats.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():

@@ -20,6 +20,13 @@
     {% endfor %}
     </ul>
     </div>
+    <div class="progress_bar">
+        <p> Time spended today: {{ time | round }} seconds </p>
+        <progress max = {{ norms }} value = {{ user.worktime }}></progress>
+        <p> Time spended alltime: {{ user.worktime | round + time | round}} / {{ norms | round }} seconds</p>
+
+    </div>
+
     {% include "calendar.html" %}
     <form method="post">
     <input class="exit" type="submit" name="exit" value="Exit" formaction="{{ url_for('rec.exit') }}">

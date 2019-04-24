@@ -43,15 +43,33 @@ def before_request():
 
 @mod.route('/ChangeUserActivity', methods=['GET', 'POST'])
 def ChangeUserActivity():
-    return render_template("tools/Manager/ChangeUserActivity.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Manager/ChangeUserActivity.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/ManageWorkday', methods=['GET', 'POST'])
 def ManageWorkday():
-    return render_template("tools/Manager/ManageWorkday.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Manager/ManageWorkday.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/Stats', methods=['GET', 'POST'])
 def Stats():
-    return render_template("tools/Manager/Stats.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Manager/Stats.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 
 @mod.route('/exit', methods=['POST', 'GET'])

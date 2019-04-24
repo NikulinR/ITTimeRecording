@@ -23,6 +23,23 @@ border-radius: 20px;
   border: black solid 5px;
 }
 
+.progress_bar{
+    width: 400px;
+    position:absolute;
+    top: 100px;
+    left: 40%;
+    right: 40%;
+}
+
+.progress_bar progress{
+    color: #31ABCC;
+    width: 400px;
+}
+.progress_bar p{
+    color: black;
+    text-align: center;
+}
+
 .error {
 	color: #FF6159;
 	text-align: right;

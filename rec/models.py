@@ -34,7 +34,7 @@ class Project(db.Model):
 
 class Normative(db.Model):
     __tablename__='NORMATIVES'
-    workday = db.Column('WORKDAYS',db.INTEGER,primary_key=True)
+    workday = db.Column('WORKDAYS', db.INTEGER, primary_key=True)
 
 
 class Holyday(db.Model):
@@ -63,5 +63,9 @@ class User(db.Model):
     username = db.Column('USERNAME', db.String(50), nullable=False)
     role = db.Column('ROLE_NAME', db.String(15), db.ForeignKey('ROLE.NAME'), nullable=False )
     project = db.Column('PROJECT_ID', db.String(15), db.ForeignKey('PROJECTS.ID'))
+
+    def EndDay(self, time):
+        self.worktime += time
+        db.session.commit()
     #role = db.relationship('ROLE')
     #project = db.relationship('PROJECTS')

@@ -43,16 +43,34 @@ def before_request():
 
 @mod.route('/TakeOvertime', methods=['GET', 'POST'])
 def TakeOvertime():
-    return render_template("tools/Developer/TakeOvertime.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Developer/TakeOvertime.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/ReplaceTime', methods=['GET', 'POST'])
 def ReplaceTime():
 
-    return render_template("tools/Developer/ReplaceTime.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Developer/ReplaceTime.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/Stats', methods=['GET', 'POST'])
 def Stats():
-    return render_template("tools/Developer/Stats.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Developer/Stats.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():

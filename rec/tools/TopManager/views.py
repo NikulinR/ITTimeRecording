@@ -44,15 +44,33 @@ def before_request():
 
 @mod.route('/ViewData', methods=['GET', 'POST'])
 def ViewData():
-    return render_template("tools/Top-Manager/ViewData.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Top-Manager/ViewData.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/ChangeWorkday', methods=['GET', 'POST'])
 def ChangeWorkday():
-    return render_template("tools/Top-Manager/ChangeWorkday.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Top-Manager/ChangeWorkday.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/ChangeCoeffs', methods=['GET', 'POST'])
 def ChangeCoeffs():
-    return render_template("tools/Top-Manager/ChangeCoeffs.html", user=g.user, menu=menu, date=date, cal=cal)
+    return render_template("tools/Top-Manager/ChangeCoeffs.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():

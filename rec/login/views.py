@@ -1,12 +1,14 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User
+from rec.models import User, Normative
 from rec.decorators import requires_login
 from rec import forms
+import time
 
 mod = Blueprint('rec', __name__, url_prefix='/login')
-
+start = time.monotonic()
+now = time.monotonic()
 
 @mod.route('/me/')
 @requires_login
@@ -32,7 +34,17 @@ def home():
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
         menu.append(['Statistics', 'Stats'])
-    return render_template("homepage.html", user=g.user, menu=menu, date=date, cal = cal)
+
+    global now
+    now = time.monotonic()
+    session['time'] = now - start
+    return render_template("homepage.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           time=session['time'])
 
 
 @mod.before_request
@@ -52,19 +64,27 @@ def login():
     form = forms.LoginForm(request.form)
     if form.validate_on_submit():
         user = User.query.filter_by(login=form.login.data).first()
+        normative = Normative.query.first()
         if user and (user.password == form.password.data):
             # the session can't be modified as it's signed,
             # it's a safe place to store the user id
             session['user_login'] = user.login
             session['date'] = datetime.date.today()
+            session['normative'] = normative.workday
+
             g.date = datetime.date.today()
             flash('Welcome, %s' % user.login)
+            global start
+            start = time.monotonic()
+            session['time'] = now - start
             return redirect(url_for('rec.home'))
+
         flash('Wrong email or password', 'error-message')
     return render_template("login/login.html", form=form)
 
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():
+    g.user.EndDay(g.user.worktime + session['time'])
     session.clear()
     return redirect('/')
