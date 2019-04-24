@@ -22,7 +22,7 @@
     </div>
     <div class="progress_bar">
         <p> Time spended today: {{ time | round }} seconds </p>
-        <progress max = {{ norms }} value = {{ user.worktime }}></progress>
+        <progress max = {{ norms }} value = {{ user.worktime + time }}></progress>
         <p> Time spended alltime: {{ user.worktime | round + time | round}} / {{ norms | round }} seconds</p>
 
     </div>

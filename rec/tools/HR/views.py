@@ -1,7 +1,8 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User
+from rec.models import User, Workday
+import time
 from rec.decorators import requires_login
 from rec import forms
 
@@ -42,6 +43,9 @@ def before_request():
         menu.append(['Delete user', 'Delete'])
         menu.append(['Statistics', 'Stats'])
 
+    session['now'] = time.monotonic()
+    session['time'] = session['now'] - session['start']
+
 @mod.route('/ViewRequests', methods=['GET', 'POST'])
 def ViewRequests():
     return render_template("tools/HR/ViewRequests.html",
@@ -50,7 +54,7 @@ def ViewRequests():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
 @mod.route('/Register', methods=['GET', 'POST'])
 def Register():
@@ -60,7 +64,7 @@ def Register():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
 @mod.route('/Delete', methods=['GET', 'POST'])
 def Delete():
@@ -70,7 +74,7 @@ def Delete():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
 @mod.route('/Stats', methods=['GET', 'POST'])
 def Stats():
@@ -80,9 +84,8 @@ def Stats():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():
-    session.clear()
-    return redirect('/')
+    return url_for("rec.login.exit")

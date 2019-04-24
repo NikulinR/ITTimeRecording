@@ -1,7 +1,8 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User
+from rec.models import User, Workday
+import time
 from rec.decorators import requires_login
 from rec import forms
 
@@ -19,6 +20,9 @@ def before_request():
     g.user = None
     if 'user_login' in session:
         g.user = User.query.get(session['user_login'])
+
+    session['now'] = time.monotonic()
+    session['time'] = session['now'] - session['start']
 
     global menu
     menu = []
@@ -49,7 +53,7 @@ def TakeOvertime():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
 @mod.route('/ReplaceTime', methods=['GET', 'POST'])
 def ReplaceTime():
@@ -60,7 +64,7 @@ def ReplaceTime():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
 @mod.route('/Stats', methods=['GET', 'POST'])
 def Stats():
@@ -70,9 +74,10 @@ def Stats():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():
-    session.clear()
-    return redirect('/')
+    return url_for("rec.login.exit")
+    #session.clear()
+    #return redirect('/')

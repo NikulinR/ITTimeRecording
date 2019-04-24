@@ -53,6 +53,18 @@ class Workday(db.Model):
     #activity = db.relationship('ACTIVITY')
     #user = db.relationship('USER')
 
+    def __init__(self, user, date, activity):
+        self.user = user
+        self.date = date
+        self.time = 0
+        self.activity = activity
+        db.session.add(self)
+        db.session.commit()
+
+    def end(self, time):
+        self.time += time
+        db.session.commit()
+
 
 class User(db.Model):
     __tablename__ = 'USER'
@@ -66,6 +78,10 @@ class User(db.Model):
 
     def EndDay(self, time):
         self.worktime += time
+        db.session.commit()
+
+    def EndMonth(self):
+        self.worktime = 0
         db.session.commit()
     #role = db.relationship('ROLE')
     #project = db.relationship('PROJECTS')

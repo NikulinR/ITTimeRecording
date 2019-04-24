@@ -34,6 +34,9 @@ border-radius: 20px;
 .progress_bar progress{
     color: #31ABCC;
     width: 400px;
+    height: 40px;
+    border: black solid 3px;
+    border-radius: 10px;
 }
 .progress_bar p{
     color: black;
