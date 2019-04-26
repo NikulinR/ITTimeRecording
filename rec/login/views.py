@@ -61,6 +61,8 @@ def before_request():
 def sudo_exit():
     session.clear()
     return redirect('/')
+
+
 @mod.route('/', methods=['GET', 'POST'])
 def login():
     if 'user_login' in session:
