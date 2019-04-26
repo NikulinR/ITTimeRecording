@@ -21,6 +21,9 @@ def before_request():
     if 'user_login' in session:
         g.user = User.query.get(session['user_login'])
 
+    if g.user.role != "Developer":
+        return redirect('/')
+
     session['now'] = time.monotonic()
     session['time'] = session['now'] - session['start']
 
