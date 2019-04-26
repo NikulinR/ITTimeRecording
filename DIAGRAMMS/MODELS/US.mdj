@@ -81,7 +81,7 @@
 											"top": 109,
 											"width": 219.9716796875,
 											"height": 13,
-											"text": "Неавторизованный пользователь"
+											"text": "Unauthorized user"
 										},
 										{
 											"_type": "LabelView",
@@ -261,7 +261,7 @@
 											"top": 413,
 											"width": 160.1259765625,
 											"height": 13,
-											"text": "Пользователь в системе"
+											"text": "Authorized user"
 										},
 										{
 											"_type": "LabelView",
@@ -535,7 +535,7 @@
 											"top": 83.5,
 											"width": 173,
 											"height": 13,
-											"text": "Авторизоваться в системе"
+											"text": "Log into the system"
 										},
 										{
 											"_type": "LabelView",
@@ -568,7 +568,7 @@
 									"font": "Arial;13;0",
 									"left": 398,
 									"top": 76.5,
-									"width": 183.51953125,
+									"width": 183,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpbL3nyaMIXXA="
@@ -1003,7 +1003,7 @@
 											"top": 611.5,
 											"width": 120,
 											"height": 13,
-											"text": "Выйти из системы"
+											"text": "Leave the system"
 										},
 										{
 											"_type": "LabelView",
@@ -1036,7 +1036,7 @@
 									"font": "Arial;13;0",
 									"left": 75.5,
 									"top": 604.5,
-									"width": 131.11328125,
+									"width": 130,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpbMODyNvhNcY="
@@ -1471,7 +1471,7 @@
 											"top": 203.5,
 											"width": 137,
 											"height": 13,
-											"text": "Начать рабочий день"
+											"text": "Start working day"
 										},
 										{
 											"_type": "LabelView",
@@ -1504,7 +1504,7 @@
 									"font": "Arial;13;0",
 									"left": 327,
 									"top": 196.5,
-									"width": 148.328125,
+									"width": 147,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpbOIbSeqqrl4="
@@ -1938,7 +1938,7 @@
 											"top": 171.5,
 											"width": 208,
 											"height": 13,
-											"text": "Выбрать активность"
+											"text": "Choose activity"
 										},
 										{
 											"_type": "LabelView",
@@ -2130,7 +2130,7 @@
 											"top": 347.5,
 											"width": 192,
 											"height": 13,
-											"text": "Перенести рабочий день"
+											"text": "Move working day"
 										},
 										{
 											"_type": "LabelView",
@@ -2329,7 +2329,7 @@
 											"top": 341,
 											"width": 81.580078125,
 											"height": 13,
-											"text": "Разработчик"
+											"text": "Developer"
 										},
 										{
 											"_type": "LabelView",
@@ -2509,7 +2509,7 @@
 											"top": 477,
 											"width": 98.4775390625,
 											"height": 13,
-											"text": "HR-специалист"
+											"text": "HR"
 										},
 										{
 											"_type": "LabelView",
@@ -2688,7 +2688,7 @@
 											"top": 605,
 											"width": 65.609375,
 											"height": 13,
-											"text": "Менеджер"
+											"text": "Manager"
 										},
 										{
 											"_type": "LabelView",
@@ -2862,7 +2862,7 @@
 											"top": 741,
 											"width": 91.64111328125,
 											"height": 13,
-											"text": "Топ-менеджер"
+											"text": "Top-Manager"
 										},
 										{
 											"_type": "LabelView",
@@ -3417,7 +3417,7 @@
 											"top": 451.5,
 											"width": 207,
 											"height": 13,
-											"text": "Нанять или уволить сотрудника"
+											"text": "Hire & fire employee"
 										},
 										{
 											"_type": "LabelView",
@@ -3448,7 +3448,7 @@
 									"font": "Arial;13;0",
 									"left": 637.5,
 									"top": 444.5,
-									"width": 218.48876953125,
+									"width": 217,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpeBqCBmTR15I="
@@ -3878,7 +3878,7 @@
 											"top": 291.5,
 											"width": 213,
 											"height": 13,
-											"text": "Заказать переработку"
+											"text": "Order  overtime"
 										},
 										{
 											"_type": "LabelView",
@@ -4345,7 +4345,7 @@
 											"top": 555.5,
 											"width": 245,
 											"height": 13,
-											"text": "Просмотреть пользователей системы"
+											"text": "View statistics"
 										},
 										{
 											"_type": "LabelView",
@@ -4376,7 +4376,7 @@
 									"font": "Arial;13;0",
 									"left": 653.5,
 									"top": 548.5,
-									"width": 256.64453125,
+									"width": 255,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpeB2OF2jooY4="
@@ -4537,7 +4537,7 @@
 											"top": 611.5,
 											"width": 324,
 											"height": 13,
-											"text": "Проконтролировать деятельность разработчиков"
+											"text": "Control developers' work"
 										},
 										{
 											"_type": "LabelView",
@@ -4570,7 +4570,7 @@
 									"font": "Arial;13;0",
 									"left": 613.5,
 									"top": 604.5,
-									"width": 334.94921875,
+									"width": 334,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpeB2ZjWlgTYo="
@@ -5274,7 +5274,7 @@
 											"top": 675.5,
 											"width": 229,
 											"height": 13,
-											"text": "Изменить нормативы рабочего дня"
+											"text": "Change working day' normatives"
 										},
 										{
 											"_type": "LabelView",
@@ -5307,7 +5307,7 @@
 									"font": "Arial;13;0",
 									"left": 609.5,
 									"top": 668.5,
-									"width": 239.52490234375,
+									"width": 239,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpeB+7e23D8NM="
@@ -5473,7 +5473,7 @@
 											"top": 731.5,
 											"width": 278,
 											"height": 13,
-											"text": "Изменить коэффициенты для активностей"
+											"text": "Change  activities'  coefficients"
 										},
 										{
 											"_type": "LabelView",
@@ -5506,7 +5506,7 @@
 									"font": "Arial;13;0",
 									"left": 604,
 									"top": 724.5,
-									"width": 288.5478515625,
+									"width": 288,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpeB/GJG5ZMY0="
@@ -6168,474 +6168,6 @@
 							}
 						},
 						{
-							"_type": "UMLUseCaseView",
-							"_id": "AAAAAAFpi5c9053WfFc=",
-							"_parent": {
-								"$ref": "AAAAAAFpaN0qofc7MCc="
-							},
-							"model": {
-								"$ref": "AAAAAAFpi5c9053UGqk="
-							},
-							"subViews": [
-								{
-									"_type": "UMLNameCompartmentView",
-									"_id": "AAAAAAFpi5c9053XrA8=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5c9053WfFc="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5c9053UGqk="
-									},
-									"subViews": [
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFpi5c9053YUak=",
-											"_parent": {
-												"$ref": "AAAAAAFpi5c9053XrA8="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 1280,
-											"top": 784,
-											"height": 13
-										},
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFpi5c9053ZrOs=",
-											"_parent": {
-												"$ref": "AAAAAAFpi5c9053XrA8="
-											},
-											"font": "Arial;13;1",
-											"left": 676,
-											"top": 403.5,
-											"width": 137,
-											"height": 13,
-											"text": "Просмотреть резюме"
-										},
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFpi5c9053a1UM=",
-											"_parent": {
-												"$ref": "AAAAAAFpi5c9053XrA8="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 1280,
-											"top": 784,
-											"width": 80.9072265625,
-											"height": 13,
-											"text": "(from Model1)"
-										},
-										{
-											"_type": "LabelView",
-											"_id": "AAAAAAFpi5c9053b2lA=",
-											"_parent": {
-												"$ref": "AAAAAAFpi5c9053XrA8="
-											},
-											"visible": false,
-											"font": "Arial;13;0",
-											"left": 1280,
-											"top": 784,
-											"height": 13,
-											"horizontalAlignment": 1
-										}
-									],
-									"font": "Arial;13;0",
-									"left": 671,
-									"top": 396.5,
-									"width": 148.09326171875,
-									"height": 25,
-									"stereotypeLabel": {
-										"$ref": "AAAAAAFpi5c9053YUak="
-									},
-									"nameLabel": {
-										"$ref": "AAAAAAFpi5c9053ZrOs="
-									},
-									"namespaceLabel": {
-										"$ref": "AAAAAAFpi5c9053a1UM="
-									},
-									"propertyLabel": {
-										"$ref": "AAAAAAFpi5c9053b2lA="
-									}
-								},
-								{
-									"_type": "UMLAttributeCompartmentView",
-									"_id": "AAAAAAFpi5c9053cDaM=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5c9053WfFc="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5c9053UGqk="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 640,
-									"top": 392,
-									"width": 10,
-									"height": 10
-								},
-								{
-									"_type": "UMLOperationCompartmentView",
-									"_id": "AAAAAAFpi5c9053dNM0=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5c9053WfFc="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5c9053UGqk="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 640,
-									"top": 392,
-									"width": 10,
-									"height": 10
-								},
-								{
-									"_type": "UMLReceptionCompartmentView",
-									"_id": "AAAAAAFpi5c9053euiM=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5c9053WfFc="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5c9053UGqk="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 640,
-									"top": 392,
-									"width": 10,
-									"height": 10
-								},
-								{
-									"_type": "UMLTemplateParameterCompartmentView",
-									"_id": "AAAAAAFpi5c9053fYFI=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5c9053WfFc="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5c9053UGqk="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 640,
-									"top": 392,
-									"width": 10,
-									"height": 10
-								},
-								{
-									"_type": "UMLExtensionPointCompartmentView",
-									"_id": "AAAAAAFpi5c9153gjHw=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5c9053WfFc="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5c9053UGqk="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 640,
-									"top": 392,
-									"width": 10,
-									"height": 10
-								}
-							],
-							"font": "Arial;13;0",
-							"containerChangeable": true,
-							"left": 640,
-							"top": 392,
-							"width": 209,
-							"height": 35,
-							"nameCompartment": {
-								"$ref": "AAAAAAFpi5c9053XrA8="
-							},
-							"suppressAttributes": true,
-							"suppressOperations": true,
-							"attributeCompartment": {
-								"$ref": "AAAAAAFpi5c9053cDaM="
-							},
-							"operationCompartment": {
-								"$ref": "AAAAAAFpi5c9053dNM0="
-							},
-							"receptionCompartment": {
-								"$ref": "AAAAAAFpi5c9053euiM="
-							},
-							"templateParameterCompartment": {
-								"$ref": "AAAAAAFpi5c9053fYFI="
-							},
-							"extensionPointCompartment": {
-								"$ref": "AAAAAAFpi5c9153gjHw="
-							}
-						},
-						{
-							"_type": "UMLAssociationView",
-							"_id": "AAAAAAFpi5fc86Akq8c=",
-							"_parent": {
-								"$ref": "AAAAAAFpaN0qofc7MCc="
-							},
-							"model": {
-								"$ref": "AAAAAAFpi5fc86AgK+g="
-							},
-							"subViews": [
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc86AlDio=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86AgK+g="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 551,
-									"top": 414,
-									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"edgePosition": 1
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc86Am6cA=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86AgK+g="
-									},
-									"visible": null,
-									"font": "Arial;13;0",
-									"left": 549,
-									"top": 399,
-									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 30,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"edgePosition": 1
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc86AnGZs=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86AgK+g="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 554,
-									"top": 443,
-									"height": 13,
-									"alpha": -1.5707963267948966,
-									"distance": 15,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"edgePosition": 1
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc86AoQTo=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86AhCl4="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 491,
-									"top": 422,
-									"height": 13,
-									"alpha": 0.5235987755982988,
-									"distance": 30,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"edgePosition": 2
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc86Apwcw=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86AhCl4="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 492,
-									"top": 409,
-									"height": 13,
-									"alpha": 0.7853981633974483,
-									"distance": 40,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"edgePosition": 2
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc9KAq6LM=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86AhCl4="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 491,
-									"top": 450,
-									"height": 13,
-									"alpha": -0.5235987755982988,
-									"distance": 25,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"edgePosition": 2
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc9KArmoE=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86Ai3Ag="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 611,
-									"top": 406,
-									"height": 13,
-									"alpha": -0.5235987755982988,
-									"distance": 30,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									}
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc9KAsSIA=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86Ai3Ag="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 607,
-									"top": 393,
-									"height": 13,
-									"alpha": -0.7853981633974483,
-									"distance": 40,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									}
-								},
-								{
-									"_type": "EdgeLabelView",
-									"_id": "AAAAAAFpi5fc9KAtoPg=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86Ai3Ag="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"left": 619,
-									"top": 433,
-									"height": 13,
-									"alpha": 0.5235987755982988,
-									"distance": 25,
-									"hostEdge": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									}
-								},
-								{
-									"_type": "UMLQualifierCompartmentView",
-									"_id": "AAAAAAFpi5fc9KAuEsQ=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86AhCl4="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"width": 10,
-									"height": 10
-								},
-								{
-									"_type": "UMLQualifierCompartmentView",
-									"_id": "AAAAAAFpi5fc9KAvnWA=",
-									"_parent": {
-										"$ref": "AAAAAAFpi5fc86Akq8c="
-									},
-									"model": {
-										"$ref": "AAAAAAFpi5fc86Ai3Ag="
-									},
-									"visible": false,
-									"font": "Arial;13;0",
-									"width": 10,
-									"height": 10
-								}
-							],
-							"font": "Arial;13;0",
-							"head": {
-								"$ref": "AAAAAAFpi5c9053WfFc="
-							},
-							"tail": {
-								"$ref": "AAAAAAFpbO2qMvOAQko="
-							},
-							"lineStyle": 1,
-							"points": "468:447;639:424",
-							"showVisibility": true,
-							"nameLabel": {
-								"$ref": "AAAAAAFpi5fc86AlDio="
-							},
-							"stereotypeLabel": {
-								"$ref": "AAAAAAFpi5fc86Am6cA="
-							},
-							"propertyLabel": {
-								"$ref": "AAAAAAFpi5fc86AnGZs="
-							},
-							"tailRoleNameLabel": {
-								"$ref": "AAAAAAFpi5fc86AoQTo="
-							},
-							"tailPropertyLabel": {
-								"$ref": "AAAAAAFpi5fc86Apwcw="
-							},
-							"tailMultiplicityLabel": {
-								"$ref": "AAAAAAFpi5fc9KAq6LM="
-							},
-							"headRoleNameLabel": {
-								"$ref": "AAAAAAFpi5fc9KArmoE="
-							},
-							"headPropertyLabel": {
-								"$ref": "AAAAAAFpi5fc9KAsSIA="
-							},
-							"headMultiplicityLabel": {
-								"$ref": "AAAAAAFpi5fc9KAtoPg="
-							},
-							"tailQualifiersCompartment": {
-								"$ref": "AAAAAAFpi5fc9KAuEsQ="
-							},
-							"headQualifiersCompartment": {
-								"$ref": "AAAAAAFpi5fc9KAvnWA="
-							}
-						},
-						{
 							"_type": "UMLAssociationView",
 							"_id": "AAAAAAFpi5ioA6sGLsA=",
 							"_parent": {
@@ -7216,7 +6748,7 @@
 											"top": 499.5,
 											"width": 245,
 											"height": 13,
-											"text": "Просмотреть пользователей системы"
+											"text": "View statistics"
 										},
 										{
 											"_type": "LabelView",
@@ -7249,7 +6781,7 @@
 									"font": "Arial;13;0",
 									"left": 605.5,
 									"top": 492.5,
-									"width": 256.64453125,
+									"width": 255,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpi5lrfrZf+RQ="
@@ -7684,7 +7216,7 @@
 											"top": 539.5,
 											"width": 229,
 											"height": 13,
-											"text": "Начать рабочий день разработчика"
+											"text": "Start developer' working day"
 										},
 										{
 											"_type": "LabelView",
@@ -7717,7 +7249,7 @@
 									"font": "Arial;13;0",
 									"left": 1050,
 									"top": 532.5,
-									"width": 240.19140625,
+									"width": 239,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpi5oBx7tmavA="
@@ -7883,7 +7415,7 @@
 											"top": 587.5,
 											"width": 251,
 											"height": 13,
-											"text": "Закончить рабочий день разработчика"
+											"text": "End developer' working day"
 										},
 										{
 											"_type": "LabelView",
@@ -7916,7 +7448,7 @@
 									"font": "Arial;13;0",
 									"left": 1118.5,
 									"top": 580.5,
-									"width": 262.16064453125,
+									"width": 261,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpi5qaZ8MpO44="
@@ -8082,7 +7614,7 @@
 											"top": 643.5,
 											"width": 224,
 											"height": 13,
-											"text": "Сменить активность разработчика"
+											"text": "Change developer' activity"
 										},
 										{
 											"_type": "LabelView",
@@ -8115,7 +7647,7 @@
 									"font": "Arial;13;0",
 									"left": 1113,
 									"top": 636.5,
-									"width": 235.20849609375,
+									"width": 234,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpi5sE+sqVtBE="
@@ -8566,7 +8098,7 @@
 											"top": 163.5,
 											"width": 159,
 											"height": 13,
-											"text": "Закончить рабочий день"
+											"text": "End working day"
 										},
 										{
 											"_type": "LabelView",
@@ -8599,7 +8131,7 @@
 									"font": "Arial;13;0",
 									"left": 187.5,
 									"top": 156.5,
-									"width": 170.29736328125,
+									"width": 169,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpi5xxWdw+BeU="
@@ -8999,7 +8531,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Неавторизованный пользователь",
+					"name": "Unauthorized user",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -9036,7 +8568,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Пользователь в системе",
+					"name": "Authorized user",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -9207,7 +8739,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Авторизоваться в системе"
+					"name": "Log into the system"
 				},
 				{
 					"_type": "UMLUseCase",
@@ -9265,7 +8797,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Выйти из системы"
+					"name": "Leave the system"
 				},
 				{
 					"_type": "UMLUseCase",
@@ -9281,7 +8813,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Начать рабочий день",
+					"name": "Start working day",
 					"ownedElements": [
 						{
 							"_type": "UMLInclude",
@@ -9317,7 +8849,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Выбрать активность"
+					"name": "Choose activity"
 				},
 				{
 					"_type": "UMLUseCase",
@@ -9325,7 +8857,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Перенести рабочий день"
+					"name": "Move working day"
 				},
 				{
 					"_type": "UMLActor",
@@ -9333,7 +8865,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Разработчик",
+					"name": "Developer",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -9383,7 +8915,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "HR-специалист",
+					"name": "HR",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -9460,7 +8992,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Менеджер",
+					"name": "Manager",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -9483,7 +9015,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Топ-менеджер",
+					"name": "Top-Manager",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -9533,7 +9065,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Нанять или уволить сотрудника",
+					"name": "Hire & fire employee",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -9570,7 +9102,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Заказать переработку",
+					"name": "Order  overtime",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -9607,7 +9139,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Просмотреть пользователей системы",
+					"name": "View statistics",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -9644,7 +9176,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Проконтролировать деятельность разработчиков",
+					"name": "Control developers' work",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -9718,7 +9250,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Изменить нормативы рабочего дня",
+					"name": "Change working day' normatives",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -9755,7 +9287,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Изменить коэффициенты для активностей"
+					"name": "Change  activities'  coefficients"
 				},
 				{
 					"_type": "UMLUseCase",
@@ -9779,7 +9311,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Начать рабочий день разработчика",
+					"name": "Start developer' working day",
 					"ownedElements": [
 						{
 							"_type": "UMLExtend",
@@ -9802,7 +9334,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Закончить рабочий день разработчика",
+					"name": "End developer' working day",
 					"ownedElements": [
 						{
 							"_type": "UMLExtend",
@@ -9825,7 +9357,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Сменить активность разработчика",
+					"name": "Change developer' activity",
 					"ownedElements": [
 						{
 							"_type": "UMLExtend",
@@ -9856,7 +9388,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFpaN0qofc6HdE="
 					},
-					"name": "Закончить рабочий день",
+					"name": "End working day",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
