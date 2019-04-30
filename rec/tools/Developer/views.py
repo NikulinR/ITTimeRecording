@@ -38,15 +38,17 @@ def before_request():
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
 
+
 @mod.route('/TakeOvertime', methods=['GET', 'POST'])
 def TakeOvertime():
+    form = forms.OvertimeForm(request.form)
     return render_template("tools/Developer/TakeOvertime.html",
                            user=g.user,
                            menu=menu,
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'], form=form)
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():

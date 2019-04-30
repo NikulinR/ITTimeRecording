@@ -1,10 +1,40 @@
 body{
 	background-color: #57FFC6;
+    /*background: url("work.png");
+    background-size: 500px 500px;*/
 	font-family: Gothic;
 }
 
+.overtime{
+    background: rgba(49, 171, 204, 0.73);
+  text-align: center;
+  width: 20%;
+  padding: 20px;
+  font-size: 25px;
+  border-radius: 10px;
+  border: black solid 2px;
+}
+
+.register{
+    background: rgba(49, 171, 204, 0.73);
+  text-align: center;
+  width: 20%;
+  padding: 20px;
+  font-size: 25px;
+  border-radius: 10px;
+  border: black solid 2px;
+}
+
+.header
+{
+    height: 40px;
+    background-color: rgba(49, 171, 204, 0.79);
+    border: black solid 2px;
+    border-radius: 4px;
+}
+
 .button{
-background-color: #FF6159;
+background-color: rgba(255, 97, 89, 0.79);
 width: 150px;
 height: 55px;
 font-size: 25px;
@@ -12,7 +42,7 @@ border-radius: 20px;
 }
 
 .autorization {
-  background: #31ABCC;
+  background: rgba(49, 171, 204, 0.73);
   text-align: center;
   width: 400px;
     margin-left: auto;
@@ -24,16 +54,19 @@ border-radius: 20px;
 }
 
 .progress_bar{
-    width: 400px;
+    width: 20%;
     position:absolute;
     top: 100px;
     left: 40%;
     right: 40%;
+    background-color: rgba(49, 204, 107, 0.79);
+    border: black solid 2px;
+    border-radius: 4px;
 }
 
 .progress_bar progress{
     color: #31ABCC;
-    width: 400px;
+    width: 100%;
     height: 40px;
     border: black solid 3px;
     border-radius: 10px;
@@ -44,7 +77,7 @@ border-radius: 20px;
 }
 
 .error {
-	color: #FF6159;
+	color: rgba(255, 97, 89, 0.84);
 	text-align: right;
 	margin-top: 50px;
 	font-size: 30px;
@@ -60,7 +93,7 @@ border-radius: 20px;
 .menu li{
     font-size: 20px;
     width: 200px;
-    background-color: #31ABCC;
+    background-color: rgba(49, 171, 204, 0.79);
     text-align: right;
     border: black solid 2px;
     border-radius: 4px;
@@ -79,7 +112,7 @@ border-radius: 20px;
 }
 
 .calendar td{
-	background-color: #31ABCC;
+	background-color: rgba(49, 171, 204, 0.7);
 	font-size: 30px;
 	font-family: monospace;
 	font-weight: bold;
@@ -97,7 +130,7 @@ border-radius: 20px;
 }
 
 .exit{
-	background-color: #FF6159;
+	background-color: #ff6159;
 	font-size: 20px;
 	font-family: monospace;
 	font-weight: bold;
@@ -109,6 +142,6 @@ border-radius: 20px;
 
 .hello{
     position: absolute;
-    top: 0px;
+    top: -5px;
     left: 10px;
 }

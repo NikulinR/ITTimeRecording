@@ -65,15 +65,17 @@ def ViewRequests():
                            norms=session['normative'],
                            time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
 
+
 @mod.route('/Register', methods=['GET', 'POST'])
 def Register():
+    form = forms.RegisterForm(request.form)
     return render_template("tools/Manager/Register.html",
                            user=g.user,
                            menu=menu,
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'], form=form)
 
 @mod.route('/Delete', methods=['GET', 'POST'])
 def Delete():

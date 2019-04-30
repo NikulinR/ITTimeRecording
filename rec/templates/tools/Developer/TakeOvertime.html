@@ -1,3 +1,10 @@
 {% include "homepage.html" %}
-
-overtime
+<div class="overtime">
+    {% from "macros.html" import render_field %}
+    <form method="POST" action="." class="form">
+        {{ form.csrf_token }}
+          <p>Overtime date:</p>
+        {{ render_field(form.date, class="date") }}
+          <br><input type="submit" value="Order" class="button">
+    </form>
+</div>

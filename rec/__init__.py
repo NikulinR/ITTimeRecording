@@ -20,7 +20,7 @@ def not_found(error):
 @app.route('/')
 def main():
     g.user = None
-    return redirect('/login/')
+    return redirect('/home/')
 
 
 

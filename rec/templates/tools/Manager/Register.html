@@ -1,3 +1,14 @@
 {% include "homepage.html" %}
 
-register
+<div class="register">
+    {% from "macros.html" import render_field %}
+    <form method="POST" action="." class="form">
+        {{ form.csrf_token }}
+          <p>Register new user:</p>
+        {{ render_field(form.login, class="login") }}
+        {{ render_field(form.password, class="password") }}
+        {{ render_field(form.username, class="username") }}
+        {{ render_field(form.role, class="role") }}
+          <br><input type="submit" value="Register" class="button">
+    </form>
+</div>

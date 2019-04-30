@@ -6,7 +6,7 @@ from rec.decorators import requires_login
 from rec import forms
 import time
 
-mod = Blueprint('rec', __name__, url_prefix='/login')
+mod = Blueprint('rec', __name__, url_prefix='/home')
 
 @mod.route('/me/')
 @requires_login
@@ -74,7 +74,7 @@ def login():
             if Workday.query.filter_by(date=datetime.date.today().toordinal(), user=user.login).first():
                 session["workday_id"] = Workday.query.filter_by(date=datetime.date.today().toordinal(), user=user.login).first().id
             else:
-                newDay = Workday(user.login, datetime.date.today().toordinal(), "Standart")
+                newDay = user.start_day('Standart')
                 session["workday_id"] = newDay.id
             return redirect(url_for('rec.home'))
 
@@ -84,8 +84,9 @@ def login():
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():
+    g.user.fix_time(session['time'])
+    g.user.end_day()
     day = Workday.query.filter_by(id=session["workday_id"]).first()
-    g.user.EndDay(g.user.worktime + session['time'])
-    day.end(session['time'])
+    day.calculate()
     session.clear()
     return redirect('/')

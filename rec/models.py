@@ -44,9 +44,9 @@ class Workday(db.Model):
         user = User.query.filter_by(login=self.user).first()
         if user:
             act_coeff = Activity.query.filter_by(name=self.activity).first().coeff
-            user.salary += act_coeff * self.time/3600 * RubsPerHour
-        db.session.commit()
-        return act_coeff * self.time/3600 * RubsPerHour
+            user.salary += act_coeff * (datetime.datetime.today().toordinal() - self.time)/3600 * RubsPerHour
+            db.session.commit()
+            return act_coeff * self.time/3600 * RubsPerHour
 
 
 class User(db.Model):
@@ -59,9 +59,7 @@ class User(db.Model):
     role = db.Column('ROLE_NAME', db.String(15), nullable=False )
 
     def __init__(self, login, password, username, role):
-        if User.query.filter_by(login=login).first():
-            return False
-        else:
+        if not User.query.filter_by(login=login).first():
             self.login = login
             self.password = password
             self.username = username
