@@ -82,7 +82,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -208,
+											"left": -224,
 											"top": -128,
 											"height": 13
 										},
@@ -93,11 +93,11 @@
 												"$ref": "AAAAAAFqVfI8vtBjCa4="
 											},
 											"font": "Arial;13;1",
-											"left": 205,
+											"left": 197,
 											"top": 175,
-											"width": 109.86083984375,
+											"width": 119.8310546875,
 											"height": 13,
-											"text": "Open site"
+											"text": "Открыть страницу"
 										},
 										{
 											"_type": "LabelView",
@@ -107,7 +107,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -208,
+											"left": -224,
 											"top": -128,
 											"width": 88,
 											"height": 13,
@@ -121,16 +121,16 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -208,
+											"left": -224,
 											"top": -128,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 200,
+									"left": 192,
 									"top": 168,
-									"width": 119.86083984375,
+									"width": 129.8310546875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFqVfI8vtBkK/c="
@@ -148,9 +148,9 @@
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 200,
+							"left": 192,
 							"top": 168,
-							"width": 119.86083984375,
+							"width": 129.8310546875,
 							"height": 41,
 							"nameCompartment": {
 								"$ref": "AAAAAAFqVfI8vtBjCa4="
@@ -177,7 +177,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 271,
+									"left": 270,
 									"top": 138,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -198,8 +198,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 286,
-									"top": 137,
+									"left": 285,
+									"top": 138,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -219,7 +219,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 242,
+									"left": 241,
 									"top": 139,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -238,7 +238,7 @@
 								"$ref": "AAAAAAFqVfIwbNBdVCk="
 							},
 							"lineStyle": 1,
-							"points": "257:124;258:167",
+							"points": "257:124;256:167",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVfu1VtDJhNU="
@@ -293,7 +293,7 @@
 											"top": 351,
 											"width": 158.9072265625,
 											"height": 13,
-											"text": "Enter login and password"
+											"text": "Ввести логин и пароль"
 										},
 										{
 											"_type": "LabelView",
@@ -388,17 +388,17 @@
 										"$ref": "AAAAAAFqVfwRi9D6EHU="
 									},
 									"font": "Arial;13;0",
-									"left": 130,
-									"top": 257,
-									"width": 111.998046875,
+									"left": 70,
+									"top": 255,
+									"width": 170.79638671875,
 									"height": 13,
-									"alpha": -1.1168523737637677,
-									"distance": 81.43709228600933,
+									"alpha": -1.3016293294592929,
+									"distance": 107.5174404457249,
 									"hostEdge": {
 										"$ref": "AAAAAAFqVfwRi9D7XXQ="
 									},
 									"edgePosition": 1,
-									"text": "User is authorized?"
+									"text": "Пользователь авторизован?"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -411,8 +411,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 288,
-									"top": 221,
+									"left": 287,
+									"top": 220,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -432,7 +432,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 244,
+									"left": 243,
 									"top": 222,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -451,7 +451,7 @@
 								"$ref": "AAAAAAFqVfI8vtBie5U="
 							},
 							"lineStyle": 1,
-							"points": "259:209;259:247",
+							"points": "257:209;259:247",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVfwRi9D8AIU="
@@ -483,9 +483,9 @@
 										"$ref": "AAAAAAFqVf70VtEel+A="
 									},
 									"font": "Arial;13;0",
-									"left": 265,
+									"left": 262,
 									"top": 298,
-									"width": 16.6181640625,
+									"width": 22.140625,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -493,7 +493,7 @@
 										"$ref": "AAAAAAFqVf70VtEfg1Y="
 									},
 									"edgePosition": 1,
-									"text": "No"
+									"text": "Нет"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -604,7 +604,7 @@
 										"$ref": "AAAAAAFqVf9aDdE6MHg="
 									},
 									"edgePosition": 1,
-									"text": "Is password and login valid?"
+									"text": "Логин и пароль подходят?"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -689,9 +689,9 @@
 										"$ref": "AAAAAAFqVf/rE9FSSBI="
 									},
 									"font": "Arial;13;0",
-									"left": 25,
+									"left": 22,
 									"top": 421,
-									"width": 16.6181640625,
+									"width": 22.140625,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -699,7 +699,7 @@
 										"$ref": "AAAAAAFqVf/rE9FTp7o="
 									},
 									"edgePosition": 1,
-									"text": "No"
+									"text": "Нет"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -805,9 +805,9 @@
 											"font": "Arial;13;1",
 											"left": 437,
 											"top": 351,
-											"width": 183,
+											"width": 274.30126953125,
 											"height": 13,
-											"text": "Choose action on homepage"
+											"text": "Выбрать действие на домашней странице"
 										},
 										{
 											"_type": "LabelView",
@@ -840,7 +840,7 @@
 									"font": "Arial;13;0",
 									"left": 432,
 									"top": 344,
-									"width": 193,
+									"width": 284.30126953125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFqVgGU7tGDzic="
@@ -860,7 +860,7 @@
 							"containerChangeable": true,
 							"left": 432,
 							"top": 344,
-							"width": 193,
+							"width": 284.30126953125,
 							"height": 41,
 							"nameCompartment": {
 								"$ref": "AAAAAAFqVgGU7tGCi/s="
@@ -886,17 +886,17 @@
 										"$ref": "AAAAAAFqVgHpitGaRpU="
 									},
 									"font": "Arial;13;0",
-									"left": 543,
-									"top": 247,
+									"left": 400,
+									"top": 238,
 									"width": 21.20751953125,
 									"height": 13,
-									"alpha": 1.609238787102513,
-									"distance": 26.019223662515376,
+									"alpha": -1.7047315883558813,
+									"distance": 158.38244852255568,
 									"hostEdge": {
 										"$ref": "AAAAAAFqVgHpitGbufM="
 									},
 									"edgePosition": 1,
-									"text": "Yes"
+									"text": "Да"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -909,7 +909,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 557,
+									"left": 597,
 									"top": 248,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -930,7 +930,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 513,
+									"left": 553,
 									"top": 250,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -949,7 +949,7 @@
 								"$ref": "AAAAAAFqVfwBytD3Klc="
 							},
 							"lineStyle": 1,
-							"points": "271:257;528:256;530:287",
+							"points": "271:257;568:256;570:287",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVgHpitGcBTA="
@@ -981,7 +981,7 @@
 										"$ref": "AAAAAAFqVgJc7NGwQ3M="
 									},
 									"font": "Arial;13;0",
-									"left": 351,
+									"left": 343,
 									"top": 425,
 									"width": 21.20751953125,
 									"height": 13,
@@ -991,7 +991,7 @@
 										"$ref": "AAAAAAFqVgJc7dGxpTU="
 									},
 									"edgePosition": 1,
-									"text": "Yes"
+									"text": "Да"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1004,7 +1004,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 346,
+									"left": 338,
 									"top": 425,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -1025,7 +1025,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 390,
+									"left": 382,
 									"top": 426,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -1044,7 +1044,7 @@
 								"$ref": "AAAAAAFqVf9CctE2o74="
 							},
 							"lineStyle": 1,
-							"points": "271:497;376:496;376:368;431:367",
+							"points": "271:497;368:496;368:368;431:367",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVgJc7dGyRPQ="
@@ -1084,7 +1084,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -80,
+											"left": -48,
 											"top": -128,
 											"height": 13
 										},
@@ -1095,11 +1095,11 @@
 												"$ref": "AAAAAAFqVgwR/NHH7uo="
 											},
 											"font": "Arial;13;1",
-											"left": 461,
+											"left": 477,
 											"top": 471,
-											"width": 135.0654296875,
+											"width": 199.06884765625,
 											"height": 13,
-											"text": "Fill and send the form"
+											"text": "Заполнить и отправить форму"
 										},
 										{
 											"_type": "LabelView",
@@ -1109,7 +1109,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -80,
+											"left": -48,
 											"top": -128,
 											"width": 86.6708984375,
 											"height": 13,
@@ -1123,16 +1123,16 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -80,
+											"left": -48,
 											"top": -128,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 456,
+									"left": 472,
 									"top": 464,
-									"width": 145.0654296875,
+									"width": 209.06884765625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFqVgwR/NHI/a4="
@@ -1150,9 +1150,9 @@
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 456,
+							"left": 472,
 							"top": 464,
-							"width": 145.0654296875,
+							"width": 209.06884765625,
 							"height": 41,
 							"nameCompartment": {
 								"$ref": "AAAAAAFqVgwR/NHH7uo="
@@ -1178,17 +1178,17 @@
 										"$ref": "AAAAAAFqVgxmDNHf/E8="
 									},
 									"font": "Arial;13;0",
-									"left": 534,
-									"top": 425,
-									"width": 110.55078125,
+									"left": 384,
+									"top": 415,
+									"width": 189.05224609375,
 									"height": 13,
-									"alpha": 1.448686902312762,
-									"distance": 62.289646009589745,
+									"alpha": -1.6172623137637743,
+									"distance": 96.02083107326243,
 									"hostEdge": {
 										"$ref": "AAAAAAFqVgxmDNHgsqs="
 									},
 									"edgePosition": 1,
-									"text": "Render action form"
+									"text": "Отображение формы действия"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1201,7 +1201,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 557,
+									"left": 603,
 									"top": 417,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -1222,7 +1222,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 513,
+									"left": 559,
 									"top": 418,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -1241,7 +1241,7 @@
 								"$ref": "AAAAAAFqVgGU7tGBPAo="
 							},
 							"lineStyle": 1,
-							"points": "528:385;528:463",
+							"points": "574:385;575:463",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVgxmDNHhLn0="
@@ -1273,17 +1273,17 @@
 										"$ref": "AAAAAAFqVg3EatH3Bl0="
 									},
 									"font": "Arial;13;0",
-									"left": 533,
-									"top": 520,
-									"width": 104.79345703125,
+									"left": 567,
+									"top": 544,
+									"width": 130.27294921875,
 									"height": 13,
-									"alpha": 1.9911150201571715,
-									"distance": 60.83584469702052,
+									"alpha": 1.9236023701499596,
+									"distance": 81.02468759581859,
 									"hostEdge": {
 										"$ref": "AAAAAAFqVg3EatH4yc0="
 									},
 									"edgePosition": 1,
-									"text": "Perform an action"
+									"text": "Произвести действие"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1296,8 +1296,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 559,
-									"top": 545,
+									"left": 579,
+									"top": 555,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1317,8 +1317,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 515,
-									"top": 546,
+									"left": 536,
+									"top": 541,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1336,7 +1336,7 @@
 								"$ref": "AAAAAAFqVgwR/NHGH7o="
 							},
 							"lineStyle": 1,
-							"points": "529:505;531:599",
+							"points": "568:505;535:599",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVg3EatH5jlE="
@@ -1359,7 +1359,7 @@
 							},
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 496,
+							"left": 536,
 							"top": 288,
 							"width": 70,
 							"height": 6
@@ -1384,17 +1384,17 @@
 										"$ref": "AAAAAAFqVg8uqNIYAzE="
 									},
 									"font": "Arial;13;0",
-									"left": 408,
-									"top": 311,
-									"width": 107.68798828125,
+									"left": 352,
+									"top": 303,
+									"width": 211.10400390625,
 									"height": 13,
-									"alpha": -1.5707967267948966,
-									"distance": 68,
+									"alpha": -1.6808360020432327,
+									"distance": 114.28035701729323,
 									"hostEdge": {
 										"$ref": "AAAAAAFqVg8uqNIZF8w="
 									},
 									"edgePosition": 1,
-									"text": "Render homepage"
+									"text": "Отображение домашней страницы"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1407,8 +1407,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 558,
-									"top": 311,
+									"left": 600,
+									"top": 310,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1428,7 +1428,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 514,
+									"left": 556,
 									"top": 312,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -1447,7 +1447,7 @@
 								"$ref": "AAAAAAFqVg7rx9IRLF8="
 							},
 							"lineStyle": 1,
-							"points": "530:294;529:343",
+							"points": "570:294;572:343",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVg8uqNIaxYo="
@@ -1531,7 +1531,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 160,
+											"left": 128,
 											"top": 32,
 											"height": 13
 										},
@@ -1542,11 +1542,11 @@
 												"$ref": "AAAAAAFqVhHgOtJLBWc="
 											},
 											"font": "Arial;13;1",
-											"left": 373,
+											"left": 357,
 											"top": 671,
-											"width": 119.234375,
+											"width": 154.4384765625,
 											"height": 13,
-											"text": "Press \"Exit\" button"
+											"text": "Нажать кнопку \"Выход\""
 										},
 										{
 											"_type": "LabelView",
@@ -1556,7 +1556,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 160,
+											"left": 128,
 											"top": 32,
 											"width": 86.6708984375,
 											"height": 13,
@@ -1570,16 +1570,16 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 160,
+											"left": 128,
 											"top": 32,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 368,
+									"left": 352,
 									"top": 664,
-									"width": 129.234375,
+									"width": 164.4384765625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFqVhHgOtJMYtQ="
@@ -1597,9 +1597,9 @@
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 368,
+							"left": 352,
 							"top": 664,
-							"width": 129.234375,
+							"width": 164.4384765625,
 							"height": 41,
 							"nameCompartment": {
 								"$ref": "AAAAAAFqVhHgOtJLBWc="
@@ -1687,7 +1687,7 @@
 								"$ref": "AAAAAAFqVg/OSdIyK2I="
 							},
 							"lineStyle": 1,
-							"points": "519:609;432:608;432:663",
+							"points": "519:609;432:608;433:663",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVhI089JmJEI="
@@ -1719,17 +1719,17 @@
 										"$ref": "AAAAAAFqVhJzVtJ3cbA="
 									},
 									"font": "Arial;13;0",
-									"left": 640,
-									"top": 347,
-									"width": 107.68798828125,
+									"left": 780,
+									"top": 411,
+									"width": 211.10400390625,
 									"height": 13,
-									"alpha": -6.260112472838243,
-									"distance": 130.034610777285,
+									"alpha": 5.301258923547007,
+									"distance": 134.03357788255897,
 									"hostEdge": {
 										"$ref": "AAAAAAFqVhJzVtJ4shU="
 									},
 									"edgePosition": 1,
-									"text": "Render homepage"
+									"text": "Отображение домашней страницы"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1742,8 +1742,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 666,
-									"top": 477,
+									"left": 742,
+									"top": 481,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1763,8 +1763,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 711,
-									"top": 478,
+									"left": 786,
+									"top": 482,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1782,7 +1782,7 @@
 								"$ref": "AAAAAAFqVg/OSdIyK2I="
 							},
 							"lineStyle": 1,
-							"points": "543:609;696:608;696:360;625:362",
+							"points": "543:609;768:608;776:368;716:367",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVhJzVtJ54iQ="
@@ -1814,9 +1814,9 @@
 										"$ref": "AAAAAAFqVhPh+tKVTM8="
 									},
 									"font": "Arial;13;0",
-									"left": 478,
-									"top": 623,
-									"width": 96.55419921875,
+									"left": 623,
+									"top": 627,
+									"width": 158.77392578125,
 									"height": 13,
 									"alpha": -1.2673658373828782,
 									"distance": 327.98323127867377,
@@ -1824,7 +1824,7 @@
 										"$ref": "AAAAAAFqVhPh+tKWF4Y="
 									},
 									"edgePosition": 1,
-									"text": "Worktime is over"
+									"text": "Рабочее время окончено?"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1837,8 +1837,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 870,
-									"top": 525,
+									"left": 1046,
+									"top": 529,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1858,8 +1858,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 825,
-									"top": 526,
+									"left": 1001,
+									"top": 530,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1877,7 +1877,7 @@
 								"$ref": "AAAAAAFqVg7rx9IRLF8="
 							},
 							"lineStyle": 1,
-							"points": "566:290;840:288;840:776;442:780",
+							"points": "606:290;1016:288;1016:784;442:780",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVhPh+tKXPk4="
@@ -1909,17 +1909,17 @@
 										"$ref": "AAAAAAFqVhReVNKtQlc="
 									},
 									"font": "Arial;13;0",
-									"left": 431,
-									"top": 736,
-									"width": 167.62890625,
+									"left": 440,
+									"top": 728,
+									"width": 211.12939453125,
 									"height": 13,
-									"alpha": 1.5325715506693527,
-									"distance": 85.21150157109074,
+									"alpha": 1.6204324367623255,
+									"distance": 115.0173899895142,
 									"hostEdge": {
 										"$ref": "AAAAAAFqVhReVNKuoW8="
 									},
 									"edgePosition": 1,
-									"text": "Commit workday in database"
+									"text": "Зафиксировать рабочий день в БД"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1972,7 +1972,7 @@
 								"$ref": "AAAAAAFqVhHgOdJKc7c="
 							},
 							"lineStyle": 1,
-							"points": "431:705;429:767",
+							"points": "432:705;429:767",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqVhReVNKvLtU="
@@ -1995,7 +1995,7 @@
 							"top": 584,
 							"width": 60,
 							"height": 25,
-							"text": "Yes"
+							"text": "Да"
 						},
 						{
 							"_type": "UMLTextView",
@@ -2008,7 +2008,7 @@
 							"top": 584,
 							"width": 60,
 							"height": 25,
-							"text": "No"
+							"text": "Нет"
 						},
 						{
 							"_type": "UMLTextView",
@@ -2017,11 +2017,11 @@
 								"$ref": "AAAAAAFqVfHsPNBXU/Y="
 							},
 							"font": "Arial;13;0",
-							"left": 768,
-							"top": 248,
-							"width": 62.0380859375,
-							"height": 38,
-							"text": "Updating workday"
+							"left": 752,
+							"top": 232,
+							"width": 85.06103515625,
+							"height": 51,
+							"text": "Обновление рабочего дня"
 						}
 					]
 				}
@@ -2041,7 +2041,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Open site"
+					"name": "Открыть страницу"
 				},
 				{
 					"_type": "UMLDecisionNode",
@@ -2057,7 +2057,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Enter login and password"
+					"name": "Ввести логин и пароль"
 				},
 				{
 					"_type": "UMLDecisionNode",
@@ -2081,7 +2081,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Choose action on homepage"
+					"name": "Выбрать действие на домашней странице"
 				},
 				{
 					"_type": "UMLAction",
@@ -2089,7 +2089,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Fill and send the form"
+					"name": "Заполнить и отправить форму"
 				},
 				{
 					"_type": "UMLForkNode",
@@ -2121,7 +2121,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Press \"Exit\" button"
+					"name": "Нажать кнопку \"Выход\""
 				}
 			],
 			"edges": [
@@ -2158,7 +2158,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "User is authorized?",
+					"name": "Пользователь авторизован?",
 					"source": {
 						"$ref": "AAAAAAFqVfI8tNBgt2E="
 					},
@@ -2172,7 +2172,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "No",
+					"name": "Нет",
 					"source": {
 						"$ref": "AAAAAAFqVfwBytD13G4="
 					},
@@ -2186,7 +2186,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Is password and login valid?",
+					"name": "Логин и пароль подходят?",
 					"source": {
 						"$ref": "AAAAAAFqVfvAddDYP5g="
 					},
@@ -2200,7 +2200,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "No",
+					"name": "Нет",
 					"source": {
 						"$ref": "AAAAAAFqVf9CctE0IOU="
 					},
@@ -2214,7 +2214,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Yes",
+					"name": "Да",
 					"source": {
 						"$ref": "AAAAAAFqVfwBytD13G4="
 					},
@@ -2228,7 +2228,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Yes",
+					"name": "Да",
 					"source": {
 						"$ref": "AAAAAAFqVf9CctE0IOU="
 					},
@@ -2242,7 +2242,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Render action form",
+					"name": "Отображение формы действия",
 					"source": {
 						"$ref": "AAAAAAFqVgGU7dF/zO8="
 					},
@@ -2256,7 +2256,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Perform an action",
+					"name": "Произвести действие",
 					"source": {
 						"$ref": "AAAAAAFqVgwR/NHEZzs="
 					},
@@ -2270,7 +2270,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Render homepage",
+					"name": "Отображение домашней страницы",
 					"source": {
 						"$ref": "AAAAAAFqVg7rx9IP2S4="
 					},
@@ -2297,7 +2297,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Render homepage",
+					"name": "Отображение домашней страницы",
 					"source": {
 						"$ref": "AAAAAAFqVg/OSNIwIkY="
 					},
@@ -2311,7 +2311,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Worktime is over",
+					"name": "Рабочее время окончено?",
 					"source": {
 						"$ref": "AAAAAAFqVg7rx9IP2S4="
 					},
@@ -2325,7 +2325,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFqVfHsMtBWd5o="
 					},
-					"name": "Commit workday in database",
+					"name": "Зафиксировать рабочий день в БД",
 					"source": {
 						"$ref": "AAAAAAFqVhHgOdJIPVA="
 					},
