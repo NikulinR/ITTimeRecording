@@ -17,22 +17,12 @@ def home():
     menu = []
     if g.user.role == 'Developer':
         menu.append(['Order overtime', 'TakeOvertime'])
-        menu.append(['Replace worktime', 'ReplaceTime'])
-        menu.append(['Statistics', 'Stats'])
     if g.user.role == 'Manager':
         menu.append(['Change user activity', 'ChangeUserActivity'])
         menu.append(['Workday managing', 'ManageWorkday'])
-        menu.append(['Statistics', 'Stats'])
-    if g.user.role == 'Top-Manager':
-        menu.append(['View user data', 'ViewData'])
-        menu.append(['Change working day standards', 'ChangeWorkday'])
-        menu.append(['Change coefficients', 'ChangeCoeffs'])
-    if g.user.role == 'HR':
         menu.append(['View new registration requests', 'ViewRequests'])
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
-        menu.append(['Statistics', 'Stats'])
-
 
     return render_template("homepage.html",
                            user=g.user,

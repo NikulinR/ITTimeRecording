@@ -17,12 +17,3 @@ Manager:
 - Login: Pasha
 - Password: 123
 
-Top-Manager:
-------------
-- Login: Gosha
-- Password: 123
-
-HR:
-------------
-- Login: Sasha
-- Password: 123
