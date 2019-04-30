@@ -29,7 +29,6 @@ def before_request():
     if g.user.role == 'Manager':
         menu.append(['Change user activity', 'ChangeUserActivity'])
         menu.append(['Workday managing', 'ManageWorkday'])
-        menu.append(['View new registration requests', 'ViewRequests'])
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
 

@@ -20,7 +20,6 @@ def home():
     if g.user.role == 'Manager':
         menu.append(['Change user activity', 'ChangeUserActivity'])
         menu.append(['Workday managing', 'ManageWorkday'])
-        menu.append(['View new registration requests', 'ViewRequests'])
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
 
@@ -56,17 +55,16 @@ def sudo_exit():
 @mod.route('/', methods=['GET', 'POST'])
 def login():
     if 'user_login' in session:
-        return redirect('login/me')
+        return redirect(url_for('rec.home'))
     form = forms.LoginForm(request.form)
     if form.validate_on_submit():
         user = User.query.filter_by(login=form.login.data).first()
-        normative = Normative.query.first()
         if user and (user.password == form.password.data):
             # the session can't be modified as it's signed,
             # it's a safe place to store the user id
             session['user_login'] = user.login
             session['date'] = datetime.date.today()
-            session['normative'] = normative.workday
+            session['normative'] = Normative
             g.date = datetime.date.today()
             flash('Welcome, %s' % user.login)
             start = time.monotonic()
