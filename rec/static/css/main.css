@@ -1,11 +1,11 @@
 body{
 	background-color: #57FFC6;
-    /*background: url("work.png");
-    background-size: 500px 500px;*/
+    background: url("work.png");
+    background-size: 500px 500px;
 	font-family: Gothic;
 }
 
-.overtime{
+.fields{
     background: rgba(49, 171, 204, 0.73);
   text-align: center;
   width: 20%;
@@ -15,14 +15,16 @@ body{
   border: black solid 2px;
 }
 
-.register{
+.activity{
     background: rgba(49, 171, 204, 0.73);
   text-align: center;
-  width: 20%;
   padding: 20px;
-  font-size: 25px;
   border-radius: 10px;
   border: black solid 2px;
+   position:absolute;
+   top: 400px;
+    right: 20px;
+    width: 230px;
 }
 
 .header

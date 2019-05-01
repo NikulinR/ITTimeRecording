@@ -28,6 +28,21 @@
     </div>
 
     {% include "calendar.html" %}
+    <div class="activity">
+        <form method="post">
+            <label for="activity"> Activity </label>
+            <select name="activity" id="activity">
+                <option value="Standart">Standart</option>
+                <option value="Vacation">Vacation</option>
+                <option value="Sick">Sick</option>
+                <option value="Assignment">Assignment</option>
+                <option value="Overtime">Overtime</option>
+            </select>
+            <br>
+            <br>
+            <input class="button" type="submit" name="activity" value="Change" formaction="{{ url_for('rec.activity') }}">
+        </form>
+    </div>
     <form method="post">
     <input class="exit" type="submit" name="exit" value="Exit" formaction="{{ url_for('rec.exit') }}">
     </form>

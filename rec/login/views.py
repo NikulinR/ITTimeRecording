@@ -66,7 +66,7 @@ def login():
             session['date'] = datetime.date.today()
             session['normative'] = Normative
             g.date = datetime.date.today()
-            flash('Welcome, %s' % user.login)
+            #flash('Welcome, %s' % user.login)
             start = time.monotonic()
             now = time.monotonic()
             session['now'] = now
@@ -81,6 +81,10 @@ def login():
         flash('Wrong email or password', 'error-message')
     return render_template("login/login.html", form=form)
 
+@mod.route('/activity', methods=['POST', 'GET'])
+def activity():
+    g.user.choose_activity(request.form['activity'])
+    return redirect('/')
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():
