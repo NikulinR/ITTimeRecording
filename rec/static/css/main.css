@@ -1,12 +1,12 @@
 body{
 	background-color: #57FFC6;
-    background: url("work.png");
-    background-size: 500px 500px;
+    background: url("work.jpg");
+    background-size: 900px 900px;
 	font-family: Gothic;
 }
 
 .fields{
-    background: rgba(49, 171, 204, 0.73);
+    background: rgba(49, 171, 204, 0.7);
   text-align: center;
   width: 20%;
   padding: 20px;
@@ -16,7 +16,7 @@ body{
 }
 
 .activity{
-    background: rgba(49, 171, 204, 0.73);
+    background: rgba(49, 171, 204, 0.7);
   text-align: center;
   padding: 20px;
   border-radius: 10px;
@@ -30,13 +30,13 @@ body{
 .header
 {
     height: 40px;
-    background-color: rgba(49, 171, 204, 0.79);
+    background-color: rgba(49, 171, 204, 0.7);
     border: black solid 2px;
     border-radius: 4px;
 }
 
 .button{
-background-color: rgba(255, 97, 89, 0.79);
+background-color: rgba(255, 97, 89, 0.7);
 width: 150px;
 height: 55px;
 font-size: 25px;
@@ -44,7 +44,7 @@ border-radius: 20px;
 }
 
 .autorization {
-  background: rgba(49, 171, 204, 0.73);
+  background: rgba(49, 171, 204, 0.7);
   text-align: center;
   width: 400px;
     margin-left: auto;
@@ -61,7 +61,7 @@ border-radius: 20px;
     top: 100px;
     left: 40%;
     right: 40%;
-    background-color: rgba(49, 204, 107, 0.79);
+    background-color: rgba(49, 204, 107, 0.7);
     border: black solid 2px;
     border-radius: 4px;
 }
@@ -79,7 +79,7 @@ border-radius: 20px;
 }
 
 .error {
-	color: rgba(255, 97, 89, 0.84);
+	color: rgba(255, 97, 89, 0.7);
 	text-align: right;
 	margin-top: 50px;
 	font-size: 30px;
@@ -95,7 +95,7 @@ border-radius: 20px;
 .menu li{
     font-size: 20px;
     width: 200px;
-    background-color: rgba(49, 171, 204, 0.79);
+    background-color: rgba(49, 171, 204, 0.7);
     text-align: right;
     border: black solid 2px;
     border-radius: 4px;
