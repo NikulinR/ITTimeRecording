@@ -14,6 +14,6 @@ class OvertimeForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
     login = StringField('Login', [valid.DataRequired()])
-    password = StringField('Password', [valid.DataRequired()])
+    password = PasswordField('Password', [valid.DataRequired()])
     role = StringField('Role', [valid.DataRequired()])
-    username = PasswordField('Username', [valid.DataRequired()])
+    username = StringField('Username', [valid.DataRequired()])

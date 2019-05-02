@@ -64,6 +64,8 @@ class User(db.Model):
             self.password = password
             self.username = username
             self.role = role
+            self.worktime = 0
+            self.salary = 0
             db.session.add(self)
             db.session.commit()
 

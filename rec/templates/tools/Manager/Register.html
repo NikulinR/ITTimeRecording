@@ -2,7 +2,7 @@
 
 <div class="fields">
     {% from "macros.html" import render_field %}
-    <form method="POST" action="." class="form">
+    <form method="POST" class="form">
         {{ form.csrf_token }}
           <p>Register new user:</p>
         {{ render_field(form.login, class="login") }}

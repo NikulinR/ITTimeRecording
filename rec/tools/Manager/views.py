@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User, Workday
+from rec.models import User, Workday, Manager, Developer
 import time
 from rec.decorators import requires_login
 from rec import forms
@@ -25,8 +25,10 @@ def before_request():
     menu = []
 
     if g.user.role == 'Developer':
+        g.user = Developer.query.get(session['user_login'])
         menu.append(['Order overtime', 'TakeOvertime'])
     if g.user.role == 'Manager':
+        g.user = Manager.query.get(session['user_login'])
         menu.append(['Change user activity', 'ChangeUserActivity'])
         menu.append(['Workday managing', 'ManageWorkday'])
         menu.append(['Registration of new worker', 'Register'])
@@ -34,6 +36,10 @@ def before_request():
 
     session['now'] = time.monotonic()
     session['time'] = session['now'] - session['start']
+
+@mod.route('/', methods=['GET', 'POST'])
+def home():
+    return redirect(url_for("rec.home"))
 
 @mod.route('/ChangeUserActivity', methods=['GET', 'POST'])
 def ChangeUserActivity():
@@ -69,6 +75,12 @@ def ViewRequests():
 @mod.route('/Register', methods=['GET', 'POST'])
 def Register():
     form = forms.RegisterForm(request.form)
+    if form.validate_on_submit():
+        if not User.query.filter_by(login=form.login.data).first():
+            g.user.register_new_user(form.login.data, form.password.data, form.username.data, form.role.data)
+            flash("User registered")
+        flash("User already exists")
+
     return render_template("tools/Manager/Register.html",
                            user=g.user,
                            menu=menu,

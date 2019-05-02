@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User, Workday
+from rec.models import User, Workday, Manager, Developer
 import time
 from rec.decorators import requires_login
 from rec import forms
@@ -30,11 +30,12 @@ def before_request():
     global menu
     menu = []
     if g.user.role == 'Developer':
+        g.user = Developer.query.get(session['user_login'])
         menu.append(['Order overtime', 'TakeOvertime'])
     if g.user.role == 'Manager':
+        g.user = Manager.query.get(session['user_login'])
         menu.append(['Change user activity', 'ChangeUserActivity'])
         menu.append(['Workday managing', 'ManageWorkday'])
-        menu.append(['View new registration requests', 'ViewRequests'])
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
 
