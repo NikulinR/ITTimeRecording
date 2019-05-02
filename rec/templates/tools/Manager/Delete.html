@@ -12,6 +12,7 @@
     <th>Salary</th>
     <th>Action</th>
 </tr>
+
 {% for worker in workers %}
 <tr>
     <td>{{ worker.login }}</td>
@@ -27,6 +28,7 @@
         <td>00:00:00</td>
 
     {% endif %}
+
     <td>{{ worker.salary | round(2)}}</td>
     {% if  worker.login != user.login %}
     <td>
