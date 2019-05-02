@@ -1,6 +1,8 @@
 # ITTimeRecording
 Учёт рабочего времени сотрудников IT-компании.
 
+Схемы предметной области находятся в документе Курсовой проект.docx
+
 Над проектом работают: Никулин Роман, Стратиенко Сергей, Дремин Михаил
 - Доска в Trello: https://trello.com/b/HynNsBnm/ittimerecording
 - Доска в Miro: https://realtimeboard.com/app/board/o9J_kxm3YZs=/
@@ -16,4 +18,3 @@ Manager:
 ------------
 - Login: Pasha
 - Password: 123
-
