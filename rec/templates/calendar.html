@@ -28,9 +28,10 @@
                                     <input type="text" name = 'year' value={{ date.year }} hidden>
                                     <input type="text" name = 'month' value={{ date.month }} hidden>
                                     <input type="text" name = 'date' value={{ day.date }} hidden>
-                                    <select onchange=this.form.submit()>
-                                        <option>{{ day.date }}</option>
-                                        <option>Order overtime</option>
+                                    <select name = 'action' onchange=this.form.submit()>
+                                        <option hidden>{{ day.date }}</option>
+                                        <option value="overtime">Order overtime</option>
+                                        <option value="sick">Take sick leave</option>
                                     </select>
                                 </form>
                             </div>
@@ -45,9 +46,10 @@
                                     <input type="text" name = 'year' value={{ date.year }} hidden>
                                     <input type="text" name = 'month' value={{ date.month }} hidden>
                                     <input type="text" name = 'date' value={{ day.date }} hidden>
-                                    <select onchange=this.form.submit()>
-                                        <option>{{ day.date }}</option>
-                                        <option>Replace workday</option>
+                                    <select name = 'action' onchange=this.form.submit()>
+                                        <option hidden>{{ day.date }}</option>
+                                        <option value="replace">Order vacation</option>
+                                        <option value="sick">Take sick leave</option>
                                     </select>
                                 </form>
                             </div>

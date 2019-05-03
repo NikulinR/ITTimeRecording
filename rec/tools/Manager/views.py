@@ -46,9 +46,10 @@ def before_request():
     session['time'] = session['now'] - session['start']
     workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
     if(workday.ended == 1):
-        session['time'] = 0
-    else:
-        fix_all_func(session['time'] - quant)
+       session['time'] = 0
+    #else:
+
+    #fix_all_func(session['time'] - quant)
     #g.user.fix_time(session['time'] - quant)
 
 @mod.route('/', methods=['GET', 'POST'])
@@ -71,7 +72,7 @@ def ChangeUserActivity():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           curtime=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
                            workers=everyone,
                            workdays=workdict)
 
@@ -88,7 +89,7 @@ def ManageWorkday():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           curtime=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
                            workers = everyone,
                            workdays=workdict)
 
@@ -114,7 +115,7 @@ def Register():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           curtime=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
                            form=form,
                            workdays=workdict)
 
@@ -133,7 +134,7 @@ def Delete():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           curtime=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
                            workers = everyone,
                            workdays=workdict)
 

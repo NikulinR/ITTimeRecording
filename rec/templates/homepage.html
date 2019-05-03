@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/static/css/main.css" />
 </head>
 {% block body %}
+    {% set ended = workdays[user.login].ended %}
+
     <form class="calc" method="post" action={{ url_for("Manager.calculate_all") }}>
         <input type = 'submit' value="Calculate all salaries">
     </form>
@@ -20,19 +22,26 @@
     {% for item in menu %}
         <li>
             {% set url = role+"."+item[1] %}
-            <a href = {{ url_for(url)}}>{{ item[0] }}</a>
+            <a href = {{ url_for(url) }}>{{ item[0] }}</a>
         </li>
     {% endfor %}
     </ul>
     </div>
     <div class="progress_bar">
+
+        {% if ended == 0 %}<img src="">Day is going{% endif %}
+        {% if ended == 1 %}<img src="">Day is stopped{% endif %}
+
         <p> Time spended today: </p>
+        {% if ended == 0 %}
+            <p class="timer">{{ '%02d'|format((curtime/3600)|int) }}:{{ '%02d'|format((curtime%3600)/60|int) }}:{{ '%02d'|format((curtime%60)|int) }} </p>
 
-        {% set ended = workdays[user.login].ended %}
+        {% else %}
+            <p class="stoppedtimer">{{ '%02d'|format((curtime/3600)|int) }}:{{ '%02d'|format((curtime%3600)/60|int) }}:{{ '%02d'|format((curtime%60)|int) }} </p>
 
-        <p {% if ended == 0 %}class="timer"{% endif %}>{{ '%02d'|format((time/3600)|int) }}:{{ '%02d'|format((time%3600)/60|int) }}:{{ '%02d'|format((time%60)|int) }} </p>
-        <progress max = {{ norms }} value = {{ (user.worktime/3660 + time/3660)|round(2) }}></progress>
-        <p> Time spended alltime: {{ (user.worktime/3600 + time/3660)|round(1)}} / {{ norms | round }} hours</p>
+        {% endif %}
+        <progress max = {{ norms }} value = {{ (user.worktime/3660 + curtime/3660)|round(2) }}></progress>
+        <p> Time spended alltime: {{ (user.worktime/3600 + curtime/3660)|round(1)}} / {{ norms | round }} hours</p>
 
     </div>
     <div class = 'dayman'>
@@ -44,7 +53,11 @@
                    <input class="startday" type="submit" value="Start day" formaction={{ url_for("rec.begin_day") }}>
                 </td>
                 <td>
-                    <input class="endday" type="submit" value="End day" formaction={{ url_for("rec.end_day") }}>
+                    {% if ended %}
+                        <input class="endday" type="submit" value="End day" >
+                    {%else%}
+                        <input class="endday" type="submit" value="End day" formaction={{ url_for("rec.end_day") }}>
+                    {%endif%}
                 </td>
             </tr>
         </table>
@@ -55,12 +68,12 @@
         <form method="post">
             <label for="activity"> Activity </label>
 
-            {% set activity = 'Standart' %}
+            {% set activity = 'Standard' %}
                 {% if user.login in workdays %}
                     {% set activity = workdays[user.login].activity %}
                 {% endif %}
                 <select name="activity" id="activity">
-                    <option value="Standart" {% if activity == 'Standart' %} selected="selected" {% endif %}>Standart</option>
+                    <option value="Standard" {% if activity == 'Standard' %} selected="selected" {% endif %}>Standard</option>
                     <option value="Vacation" {% if activity == 'Vacation' %} selected="selected" {% endif %}>Vacation</option>
                     <option value="Sick" {% if activity == 'Sick' %} selected="selected" {% endif %}>Sick</option>
                     <option value="Assignment" {% if activity == 'Assignment' %} selected="selected" {% endif %}>Assignment</option>
@@ -72,7 +85,9 @@
     <form method="post">
     <input class="exit" type="submit" name="exit" value="Exit" formaction='{{ url_for('rec.exit') }}'>
     </form>
-    <script src="{{ url_for('static', filename='js/time.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/closetab.js') }}"></script>
+
 </body>
 {% endblock %}
 

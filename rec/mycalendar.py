@@ -35,7 +35,7 @@ class Calendar:
             month_day_count = 30
         if day.date.month == 2 and day.date.year % 4 == 0:
             month_day_count = 29
-        date: int = 1
+        date = 1
         for i in range(6):
             for j in range(7):
                 if i == 0 and j >= datetime.date(day.date.year,

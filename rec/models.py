@@ -33,10 +33,12 @@ class Holyday(db.Model):
             self.user = user
             self.date = date
             db.session.add(self)
+            print('Holyday '+str(date)+' for '+user+' is setted')
             db.session.commit()
 
     def delete(self):
         db.session.delete(self)
+        print('Holyday '+str(self.date)+' for '+self.user+' is deleted')
         db.session.commit()
 
 class Workday(db.Model):
@@ -57,14 +59,18 @@ class Workday(db.Model):
             self.ended = 0
             db.session.add(self)
             db.session.commit()
+            print('Workday '+str(self.date)+' for '+self.user+' is added')
 
     def stop(self):
         self.ended = 1
         db.session.commit()
+        print('Workday ' + str(self.date) + ' for ' + self.user + ' is ' + str(self.ended) + '. Time: ' + str(self.time))
 
     def start(self):
-        self.ended = 0
-        db.session.commit()
+        if self.activity != 'Sick':
+            self.ended = 0
+            db.session.commit()
+            print('Workday ' + str(self.date) + ' for ' + self.user + '. Time: ' + str(self.time))
 
 class User(db.Model):
     __tablename__ = 'USER'
@@ -96,7 +102,6 @@ class User(db.Model):
             db.session.commit()
             return newDay
         else:
-
             Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first().start()
 
     def end_day(self):
@@ -104,6 +109,7 @@ class User(db.Model):
         if workday:
             workday.stop()
             db.session.commit()
+            #print('Workday ' + workday.date + ' for ' + workday.user + ' is ' + str(workday.ended) + '. Time: ' + str(workday.time))
 
     def fix_time(self, time):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
@@ -111,6 +117,8 @@ class User(db.Model):
             workday.time += time
             self.worktime += time
             db.session.commit()
+            print('Workday ' + str(workday.date) + ' for ' + workday.user + ' is fixed. Time: ' + str(workday.time))
+
 
     def choose_activity(self, activity):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
@@ -121,10 +129,12 @@ class User(db.Model):
     def order_overtime(self, date, actvity):
         newDay = Workday.query.filter_by(user=self.login, date=date).first()
         if newDay:
-            newDay.activity = 'Overtime'
+            newDay.activity = actvity
         else:
             newDay = Workday(self.login, date, actvity)
-            db.session.add(newDay)
+        newDay.time = 0
+        newDay.ended = 0
+        db.session.add(newDay)
         db.session.commit()
         return newDay
 
@@ -132,10 +142,24 @@ class User(db.Model):
         newDay = Workday.query.filter_by(user=self.login, date=date).first()
         if newDay:
             newDay.activity = 'Vacation'
-
         else:
             newDay = Workday(self.login, date, 'Vacation')
-            db.session.add(newDay)
+        newDay.time = Normative/7 * 3600
+        newDay.ended = 1
+        db.session.add(newDay)
+        db.session.commit()
+        return newDay
+
+    def take_sick(self, date):
+        newDay = Workday.query.filter_by(user=self.login, date=date).first()
+        if newDay:
+            newDay.activity = 'Sick'
+
+        else:
+            newDay = Workday(self.login, date, 'Sick')
+        newDay.time = Normative/7 * 3600
+        newDay.ended = 1
+        db.session.add(newDay)
         db.session.commit()
         return newDay
 
@@ -179,6 +203,8 @@ def fix_all_func(Quant):
     users = User.query.all()
     for user in users:
         user.fix_time(Quant)
+    print('tick-tack')
+
     #time.sleep(Quant)
     #fix_all_func()
 def calculate():

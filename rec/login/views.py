@@ -35,7 +35,7 @@ def home():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           curtime=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
                            workdays=workdict)
 
 
@@ -58,8 +58,9 @@ def before_request():
         workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
         if (workday.ended == 1):
             session['time'] = 0
-        else:
-            fix_all_func(session['time'] - quant)
+        #workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
+
+        #fix_all_func(session['time'] - quant)
 
 
 @mod.route('/sudo_exit', methods=['POST', 'GET'])
@@ -121,13 +122,17 @@ def TakeOvertime():
     tmonth = int(request.form['month'])
     tdate = int(request.form['date'])
     target = datetime.date(tyear, tmonth, tdate)
-    if target.toordinal() > datetime.date.today().toordinal():
-        vacation = Holyday.query.filter_by( user=g.user.login, date=target.toordinal()).first()
-        if vacation:
-            vacation.delete()
-            g.user.order_overtime(target.toordinal(), 'Standart')
-        else:
-            g.user.order_overtime(target.toordinal(), 'Overtime')
+
+    if request.form['action'] == 'overtime':
+        if target.toordinal() > datetime.date.today().toordinal():
+            vacation = Holyday.query.filter_by( user=g.user.login, date=target.toordinal()).first()
+            if vacation:
+                vacation.delete()
+                g.user.order_overtime(target.toordinal(), 'Standart')
+            else:
+                g.user.order_overtime(target.toordinal(), 'Overtime')
+    elif request.form['action'] == 'sick':
+        g.user.take_sick(target.toordinal())
     return redirect('/')
 
 @mod.route('/ReplaceWorkday', methods=['GET', 'POST'])
@@ -137,18 +142,23 @@ def ReplaceWorkday():
     tdate = int(request.form['date'])
     target = datetime.date(tyear, tmonth, tdate)
 
-    if target.toordinal() > datetime.date.today().toordinal():
-        if Holyday.query.filter(Holyday.user == g.user.login,
-                                    Holyday.date >= datetime.datetime(date.year,
-                                                                      date.month,
-                                                                      1).toordinal(),
-                                    Holyday.date < datetime.datetime(date.year,
-                                                                     date.month+1,
-                                                                     1).toordinal()).count() < VacationsPermittion:
-            vacation = Holyday(target.toordinal(), g.user.login)
-            g.user.replace_worktime(target.toordinal())
-        else:
-            flash('You reserved too much vacations!')
+    if request.form['action'] == 'replace':
+        if target.toordinal() > datetime.date.today().toordinal():
+            if Holyday.query.filter(Holyday.user == g.user.login,
+                                        Holyday.date >= datetime.datetime(date.year,
+                                                                          date.month,
+                                                                          1).toordinal(),
+                                        Holyday.date < datetime.datetime(date.year,
+                                                                         date.month+1,
+                                                                         1).toordinal()).count() < VacationsPermittion:
+
+                vacation = Holyday(target.toordinal(), g.user.login)
+                g.user.replace_worktime(target.toordinal())
+            else:
+                flash('You reserved too much vacations!')
+    elif request.form['action'] == 'sick':
+        g.user.take_sick(target.toordinal())
+
     return redirect('/')
 
 

@@ -194,6 +194,26 @@ border-radius: 20px;
     border-radius: 4px;
 }
 
+.progress_bar .timer{
+    background-color: rgba(229,229,229,0.81);
+    color: rgba(49, 204, 107, 1);
+    font-weight: bolder;
+    font-size: 30px;
+    border: black solid 2px;
+    border-radius: 4px;
+    margin: 20px;
+}
+
+.progress_bar .stoppedtimer{
+    background-color: rgba(229,229,229,0.81);
+    color: rgba(255, 97, 89, 1);
+    font-weight: bolder;
+    font-size: 30px;
+    border: black solid 2px;
+    border-radius: 4px;
+    margin: 20px;
+}
+
 .progress_bar progress{
     color: #31ABCC;
     width: 100%;
@@ -335,3 +355,4 @@ border-radius: 20px;
     border: black solid 2px;
     border-radius: 4px;
 }
+

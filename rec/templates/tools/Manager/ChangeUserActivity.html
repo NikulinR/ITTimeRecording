@@ -34,12 +34,12 @@
         <form method="post" action="{{ url_for('Manager.ChangeUserActivity') }}">
             <input type="text" name="userlogin" value="{{ worker.login }}" hidden>
             <td>
-                {% set activity = 'Standart' %}
+                {% set activity = 'Standard' %}
                 {% if worker.login in workdays %}
                     {% set activity = workdays[worker.login].activity %}
                 {% endif %}
                 <select name="activity" id="activity">
-                    <option value="Standart" {% if activity == 'Standart' %} selected="selected" {% endif %}>Standart</option>
+                    <option value="Standard" {% if activity == 'Standard' %} selected="selected" {% endif %}>Standard</option>
                     <option value="Vacation" {% if activity == 'Vacation' %} selected="selected" {% endif %}>Vacation</option>
                     <option value="Sick" {% if activity == 'Sick' %} selected="selected" {% endif %}>Sick</option>
                     <option value="Assignment" {% if activity == 'Assignment' %} selected="selected" {% endif %}>Assignment</option>

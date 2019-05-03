@@ -42,11 +42,13 @@ def before_request():
     session['now'] = time.monotonic()
     quant = session['time']
     session['time'] = session['now'] - session['start']
-    workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
-    if (workday.ended == 1):
-        session['time'] = 0
-    else:
-        fix_all_func(session['time'] - quant)
+    #workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
+
+    #if (workday.ended == 1):
+        #session['time'] = 0
+    #else:
+
+    #fix_all_func(session['time'] - quant)
     #g.user.fix_time(session['time'] - quant)
 
 @mod.route('/TakeOvertime', methods=['GET', 'POST'])

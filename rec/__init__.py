@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sqlite3
 from flask import Flask, g, redirect, render_template, session, url_for, request
 from flask_sqlalchemy import SQLAlchemy
@@ -12,6 +13,7 @@ app.config['SECRET_KEY'] = 'gjr39dkjn344_!67#'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'timerec.db')
 print(os.path.join(basedir, 'timerec.db'))
 db = SQLAlchemy(app)
+
 
 
 
@@ -36,5 +38,13 @@ app.register_blueprint(man.views.mod)
 #куда это засунуть не знаю пока
 import rec.models as mod
 import time
-#mod.fix_all_func(5)
+quant = 1
+def commit(quant):
+    while(True):
+        mod.fix_all_func(quant)
+        time.sleep(quant)
+
+timer = threading.Thread(target=commit, args=(quant,))
+timer.setDaemon(True)
+timer.start()
 
