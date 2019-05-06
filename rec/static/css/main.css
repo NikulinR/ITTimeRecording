@@ -5,13 +5,64 @@ body{
 	font-family: Gothic;
 }
 
+.usertable{
+    background-color: rgba(49, 171, 204, 0.7);
+    position: absolute;
+    left: 10px;
+    top: 360px;
+    border-radius: 3px;
+    border: black solid 2px;
+    width: 70%;
+}
+
+.usertable table{
+    width: 100%;
+}
+
+.usertable th{
+    background-color: rgba(229,229,229,0.81);
+    font-size: 17px;
+}
+
+.usertable td{
+    background-color: rgba(107, 191, 214, 0.81);
+    font-size: 17px;
+}
+
+.usertable input[type="submit"]{
+    background-color: rgba(255, 97, 89, 0.7);
+    height: 30px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.usertable p{
+
+    text-align: center;
+    font-size: 15px;
+    font-weight: bolder;
+
+}
+
+.back{
+    background: url("tools.jpg");
+    position: absolute;
+    top: 70px;
+    left: 15px;
+    width: 225px;
+    height: 270px;
+    border-radius: 3px;
+    border: black solid 2px;
+}
+
 .fields{
     background: rgba(49, 171, 204, 0.7);
   text-align: center;
   width: 20%;
   padding: 20px;
-  font-size: 25px;
+  font-size: 20px;
   border-radius: 10px;
+    margin-top: 300px;
   border: black solid 2px;
 }
 
@@ -22,9 +73,26 @@ body{
   border-radius: 10px;
   border: black solid 2px;
    position:absolute;
-   top: 400px;
+   top: 360px;
     right: 20px;
-    width: 230px;
+    width: 15%;
+}
+
+.activity input{
+background-color: rgba(255, 97, 89, 0.7);
+width: 100%;
+height: 30px;
+font-size: 16px;
+border-radius: 10px;
+}
+
+.activity select{
+width: 100%;
+    margin: 0px;
+    padding: 0px;
+height: 55px;
+font-size: 16px;
+border-radius: 10px;
 }
 
 .header
@@ -58,7 +126,7 @@ border-radius: 20px;
 .progress_bar{
     width: 20%;
     position:absolute;
-    top: 100px;
+    top: 70px;
     left: 40%;
     right: 40%;
     background-color: rgba(49, 204, 107, 0.7);
@@ -76,6 +144,7 @@ border-radius: 20px;
 .progress_bar p{
     color: black;
     text-align: center;
+    font-size: 17px;
 }
 
 .error {
@@ -84,6 +153,12 @@ border-radius: 20px;
 	margin-top: 50px;
 	font-size: 30px;
 	font-family: monospace;
+}
+
+.menu{
+    position: absolute;
+    top:60px;
+    left: 10px;
 }
 
 .menu ul{
@@ -95,7 +170,7 @@ border-radius: 20px;
 .menu li{
     font-size: 20px;
     width: 200px;
-    background-color: rgba(49, 171, 204, 0.7);
+    background-color: rgba(49, 171, 204, 0.9);
     text-align: right;
     border: black solid 2px;
     border-radius: 4px;
@@ -105,7 +180,7 @@ border-radius: 20px;
 
 .calendar{
     position: absolute;
-    top: 80px;
+    top: 70px;
     right: 20px;
 }
 

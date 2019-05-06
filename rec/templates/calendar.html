@@ -1,12 +1,17 @@
 <link rel="stylesheet" href="/static/css/main.css" />
 <div class = "calendar">
 <form method="post">
+{% set months_names = {
+        1: 'January', 2: 'February', 3: 'March', 4: 'April',
+        5: 'May', 6: 'June', 7: 'July', 8: 'August',
+        9: 'September', 10: 'October', 11: 'November', 12: 'December'
+    } %}
     <table border="1">
         <tr>
             <th colspan="7">{{ date.year }} year</th>
         </tr>
         <tr>
-            <th colspan="7">{{ date.month }} month</th>
+            <th colspan="7">{{ months_names[date.month] }} </th>
         </tr>
         {% for week in cal %}
             <tr>

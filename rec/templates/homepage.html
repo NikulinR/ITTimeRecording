@@ -9,6 +9,7 @@
 {% block body %}
     <body link="black">
     <div class="hello"><h1>Hello, {{ user.username }}!</h1></div>
+    <div class="back"></div>
     <div class="menu">
     <ul>
     {% set role = user.role %}
@@ -40,7 +41,7 @@
             </select>
             <br>
             <br>
-            <input class="button" type="submit" name="activity" value="Change" formaction="{{ url_for('rec.activity') }}">
+            <input type="submit" name="activity" value="Change" formaction="{{ url_for('rec.activity') }}">
         </form>
     </div>
     <form method="post">

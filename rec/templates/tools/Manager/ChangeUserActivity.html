@@ -1,3 +1,41 @@
 {% include "homepage.html" %}
 
-change
+<div class = "usertable">
+<p>Workers</p>
+<table border="2px">
+<tr>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Worktime</th>
+    <th>Salary</th>
+    <th>Action</th>
+</tr>
+{% for worker in workers %}
+<tr>
+    <td>{{ worker.login }}</td>
+    <td>{{ worker.username }}</td>
+    <td>{{ worker.role }}</td>
+    <td>{{ worker.worktime }}</td>
+    <td>{{ worker.salary }}</td>
+    {% if  worker.login != user.login %}
+
+        <form method="post" action="{{ url_for('Manager.ChangeUserActivity') }}">
+            <input type="text" name="userlogin" value="{{ worker.login }}" hidden>
+            <td>
+                <select name="activity" id="activity">
+                <option value="Standart">Standart</option>
+                <option value="Vacation">Vacation</option>
+                <option value="Sick">Sick</option>
+                <option value="Assignment">Assignment</option>
+                <option value="Overtime">Overtime</option>
+            </select>
+            </td>
+            <td><input type="submit" value="Change"></td>
+        </form>
+
+    {% endif %}
+</tr>
+{% endfor %}
+</table>
+</div>

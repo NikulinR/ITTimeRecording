@@ -82,6 +82,7 @@ class User(db.Model):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
         if workday:
             self.worktime += workday.time
+            workday.time = 0
         db.session.commit()
 
     def fix_time(self, time):
@@ -129,4 +130,5 @@ class Manager(User):
     def delete_user(self, user):
         target = User.query.filter_by(login=user).first()
         if target:
-            target.delete()
+            db.session.delete(target)
+            db.session.commit()

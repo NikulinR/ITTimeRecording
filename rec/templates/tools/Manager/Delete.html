@@ -1,3 +1,31 @@
 {% include "homepage.html" %}
-
-delete
+<div class = "usertable">
+<p>Workers</p>
+<table border="2px">
+<tr>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Worktime</th>
+    <th>Salary</th>
+    <th>Action</th>
+</tr>
+{% for worker in workers %}
+<tr>
+    <td>{{ worker.login }}</td>
+    <td>{{ worker.username }}</td>
+    <td>{{ worker.role }}</td>
+    <td>{{ worker.worktime }}</td>
+    <td>{{ worker.salary }}</td>
+    {% if  worker.login != user.login %}
+    <td>
+        <form method="post" action="{{ url_for('Manager.Delete') }}">
+            <input type="text" name="userlogin" value="{{ worker.login }}" hidden>
+            <input type="submit" value="Delete">
+        </form>
+    </td>
+    {% endif %}
+</tr>
+{% endfor %}
+</table>
+</div>

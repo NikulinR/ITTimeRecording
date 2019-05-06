@@ -1,3 +1,33 @@
 {% include "homepage.html" %}
 
-manage
+<div class = "usertable">
+<p>Workers</p>
+<table border="2px">
+<tr>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Worktime</th>
+    <th>Salary</th>
+    <th>Action</th>
+</tr>
+{% for worker in workers %}
+<tr>
+    <td>{{ worker.login }}</td>
+    <td>{{ worker.username }}</td>
+    <td>{{ worker.role }}</td>
+    <td>{{ worker.worktime }}</td>
+    <td>{{ worker.salary }}</td>
+    {% if  worker.login != user.login %}
+
+        <form method="post">
+            <input type="text" name="userlogin" value="{{ worker.login }}" hidden>
+            <td><input type="submit" value="Begin" formaction={{ url_for("Manager.begin_day") }}>
+            <input type="submit" value="End" formaction={{ url_for("Manager.end_day") }}></td>
+        </form>
+
+    {% endif %}
+</tr>
+{% endfor %}
+</table>
+</div>
