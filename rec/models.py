@@ -1,8 +1,11 @@
 from rec import db
 import datetime
+import threading
+import time
 
 Normative = 40
 RubsPerHour = 250
+#Quant = 5
 
 
 class Activity(db.Model):
@@ -31,20 +34,24 @@ class Workday(db.Model):
     date = db.Column('DATE', db.INTEGER)
     activity = db.Column('ACTIVITY_NAME', db.String(15), db.ForeignKey('ACTIVITY.NAME'), nullable=False)
     user = db.Column('USER_LOGIN',db.String(20), db.ForeignKey('USER.LOGIN'), nullable=False)
+    ended = False
 
     def __init__(self, user, date, activity):
-        self.user = user
-        self.date = date
-        self.time = 0
-        self.activity = activity
-        db.session.add(self)
-        db.session.commit()
+        if not Workday.query.filter_by(date=date, user=user).first():
+            self.user = user
+            self.date = date
+            self.time = 0
+            self.activity = activity
+            self.ended = False
+            db.session.add(self)
+            db.session.commit()
+
 
     def calculate(self):
         user = User.query.filter_by(login=self.user).first()
         if user:
             act_coeff = Activity.query.filter_by(name=self.activity).first().coeff
-            user.salary += act_coeff * (datetime.datetime.today().toordinal() - self.time)/3600 * RubsPerHour
+            user.salary += act_coeff * self.time/3600 * RubsPerHour
             db.session.commit()
             return act_coeff * self.time/3600 * RubsPerHour
 
@@ -70,26 +77,29 @@ class User(db.Model):
             db.session.commit()
 
     def start_day(self, activity):
-        if Activity.query.filter_by(name=activity).first():
-            newDay = Workday(self.login, datetime.date.today().toordinal(), activity)
+        if not Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first():
+            if Activity.query.filter_by(name=activity).first():
+                newDay = Workday(self.login, datetime.date.today().toordinal(), activity)
+            else:
+                newDay = Workday(self.login, datetime.date.today().toordinal(), "Standart")
+            db.session.add(newDay)
+            db.session.commit()
+            return newDay
         else:
-            newDay = Workday(self.login, datetime.date.today().toordinal(), "Standart")
-        db.session.add(newDay)
-        db.session.commit()
-        return newDay
+            return Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
 
     def end_day(self):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
         if workday:
-            self.worktime += workday.time
-            workday.time = 0
-        db.session.commit()
+            workday.ended = True
+            db.session.commit()
 
     def fix_time(self, time):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
-        if workday:
+        if workday and not workday.ended:
             workday.time += time
-        db.session.commit()
+            self.worktime += time
+            db.session.commit()
 
     def choose_activity(self, activity):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
@@ -132,3 +142,12 @@ class Manager(User):
         if target:
             db.session.delete(target)
             db.session.commit()
+
+
+def fix_all_func(Quant):
+    users = User.query.all()
+    for user in users:
+        user.fix_time(Quant)
+    #time.sleep(Quant)
+    #fix_all_func()
+

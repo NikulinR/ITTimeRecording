@@ -23,13 +23,19 @@ def home():
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
 
+    workdays = Workday.query.filter_by(date=date.toordinal())
+    workdict = {}
+    for workday in workdays:
+        workdict[workday.user] = workday
+
     return render_template("homepage.html",
                            user=g.user,
                            menu=menu,
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'])
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           workdays=workdict)
 
 
 @mod.before_request

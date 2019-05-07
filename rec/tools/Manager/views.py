@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User, Workday, Manager, Developer
+from rec.models import User, Workday, Manager, Developer, fix_all_func
 import time
 from rec.decorators import requires_login
 from rec import forms
@@ -21,6 +21,9 @@ def before_request():
     if 'user_login' in session:
         g.user = User.query.get(session['user_login'])
 
+    if g.user.role != "Manager":
+        return redirect('/')
+
     global menu
     menu = []
 
@@ -35,7 +38,10 @@ def before_request():
         menu.append(['Delete user', 'Delete'])
 
     session['now'] = time.monotonic()
+    quant = session['time']
     session['time'] = session['now'] - session['start']
+    fix_all_func(session['time'] - quant)
+    #g.user.fix_time(session['time'] - quant)
 
 @mod.route('/', methods=['GET', 'POST'])
 def home():
@@ -46,6 +52,10 @@ def ChangeUserActivity():
     if ('userlogin' in request.form and 'activity' in request.form):
         g.user.choose_dev_activity(request.form['userlogin'],request.form['activity'])
     everyone = User.query.all()
+    workdays = Workday.query.filter_by(date=date.toordinal())
+    workdict = {}
+    for workday in workdays:
+        workdict[workday.user] = workday
     return render_template("tools/Manager/ChangeUserActivity.html",
                            user=g.user,
                            menu=menu,
@@ -53,11 +63,16 @@ def ChangeUserActivity():
                            cal=cal,
                            norms=session['normative'],
                            time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
-                           workers = everyone)
+                           workers=everyone,
+                           workdays=workdict)
 
 @mod.route('/ManageWorkday', methods=['GET', 'POST'])
 def ManageWorkday():
     everyone = User.query.all()
+    workdays = Workday.query.filter_by(date=date.toordinal())
+    workdict = {}
+    for workday in workdays:
+        workdict[workday.user] = workday
     return render_template("tools/Manager/ManageWorkday.html",
                            user=g.user,
                            menu=menu,
@@ -65,11 +80,16 @@ def ManageWorkday():
                            cal=cal,
                            norms=session['normative'],
                            time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
-                           workers = everyone)
+                           workers = everyone,
+                           workdays=workdict)
 
 
 @mod.route('/Register', methods=['GET', 'POST'])
 def Register():
+    workdays = Workday.query.filter_by(date=date.toordinal())
+    workdict = {}
+    for workday in workdays:
+        workdict[workday.user] = workday
     form = forms.RegisterForm(request.form)
     if form.validate_on_submit():
         if not User.query.filter_by(login=form.login.data).first():
@@ -83,13 +103,19 @@ def Register():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'], form=form)
+                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           form=form,
+                           workdays=workdict)
 
 @mod.route('/Delete', methods=['GET', 'POST'])
 def Delete():
     if ('userlogin' in request.form):
         g.user.delete_user(request.form['userlogin'])
     everyone = User.query.all()
+    workdays = Workday.query.filter_by(date=date.toordinal())
+    workdict = {}
+    for workday in workdays:
+        workdict[workday.user] = workday
     return render_template("tools/Manager/Delete.html",
                            user=g.user,
                            menu=menu,
@@ -97,7 +123,8 @@ def Delete():
                            cal=cal,
                            norms=session['normative'],
                            time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
-                           workers = everyone)
+                           workers = everyone,
+                           workdays=workdict)
 
 
 @mod.route('/begin_day', methods=['GET', 'POST'])
