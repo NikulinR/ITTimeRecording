@@ -33,8 +33,8 @@ class Workday(db.Model):
     time = db.Column('TIME', db.INTEGER)
     date = db.Column('DATE', db.INTEGER)
     activity = db.Column('ACTIVITY_NAME', db.String(15), db.ForeignKey('ACTIVITY.NAME'), nullable=False)
-    user = db.Column('USER_LOGIN',db.String(20), db.ForeignKey('USER.LOGIN'), nullable=False)
-    ended = False
+    user = db.Column('USER_LOGIN', db.String(20), db.ForeignKey('USER.LOGIN'), nullable=False)
+    ended = db.Column('ENDED', db.INTEGER)
 
     def __init__(self, user, date, activity):
         if not Workday.query.filter_by(date=date, user=user).first():
@@ -42,10 +42,17 @@ class Workday(db.Model):
             self.date = date
             self.time = 0
             self.activity = activity
-            self.ended = False
+            self.ended = 0
             db.session.add(self)
             db.session.commit()
 
+    def stop(self):
+        self.ended = 1
+        db.session.commit()
+
+    def start(self):
+        self.ended = 0
+        db.session.commit()
 
     def calculate(self):
         user = User.query.filter_by(login=self.user).first()
@@ -86,17 +93,18 @@ class User(db.Model):
             db.session.commit()
             return newDay
         else:
-            return Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
+
+            Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first().start()
 
     def end_day(self):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
         if workday:
-            workday.ended = True
+            workday.stop()
             db.session.commit()
 
     def fix_time(self, time):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
-        if workday and not workday.ended:
+        if workday and workday.ended == 0:
             workday.time += time
             self.worktime += time
             db.session.commit()

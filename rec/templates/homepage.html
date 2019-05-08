@@ -23,7 +23,10 @@
     </div>
     <div class="progress_bar">
         <p> Time spended today: </p>
-        <p id="timer">{{ '%02d'|format((time/3600)|int) }}:{{ '%02d'|format((time%3600)/60|int) }}:{{ '%02d'|format((time%60)|int) }} </p>
+
+        {% set ended = workdays[user.login].ended %}
+
+        <p {% if ended == 0 %}class="timer"{% endif %}>{{ '%02d'|format((time/3600)|int) }}:{{ '%02d'|format((time%3600)/60|int) }}:{{ '%02d'|format((time%60)|int) }} </p>
         <progress max = {{ norms }} value = {{ (user.worktime/3660 + time/3660)|round(2) }}></progress>
         <p> Time spended alltime: {{ (user.worktime/3600)|round(2) + (time/3660)|round(2)}} / {{ norms | round }} hours</p>
 
