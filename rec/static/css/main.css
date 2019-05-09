@@ -2,15 +2,15 @@ body{
 	background-color: #57FFC6;
     background: url("work.jpg");
     background-size: 900px 900px;
-	font-family: Gothic;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .usertable{
+    width: 100%;
     background-color: rgba(49, 171, 204, 0.7);
-    position: absolute;
-    left: 10px;
-    top: 360px;
-    width: 50%;
+
+    margin-top: 310px;
+
     border-radius: 3px;
     border: black solid 2px;
     overflow-x: auto;
@@ -18,7 +18,13 @@ body{
 }
 .usertable table {
         width: 100%;
+        font-size: 20px;
+    padding: 5px;
 	}
+
+input{
+    border-radius: 10px;
+}
 
 @media screen and (max-width: 640px) {
 	.usertable table {
@@ -43,7 +49,6 @@ body{
     width: 100%;
     height: 30px;
     font-size: 16px;
-    border-radius: 10px;
 }
 
 .usertable select{
@@ -83,31 +88,31 @@ body{
   border: black solid 2px;
 }
 
+.fields input{
+    width: 100%;
+}
+.fields table{
+    text-align: right;
+}
+
 .activity{
-    background: rgba(49, 171, 204, 0.7);
   text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-  border: black solid 2px;
+    padding: 2px;
    position:absolute;
-   top: 360px;
-    right: 20px;
-    width: 15%;
+   top: 15px;
+    right: 35%;
+    left: 35%;
 }
 
 .activity input{
 background-color: rgba(255, 97, 89, 0.7);
-width: 100%;
-height: 30px;
-font-size: 16px;
 border-radius: 10px;
 }
 
 .activity select{
-width: 100%;
     margin: 0px;
     padding: 0px;
-height: 55px;
+height: 20px;
 font-size: 16px;
 border-radius: 10px;
 }
@@ -115,6 +120,8 @@ border-radius: 10px;
 .header
 {
     height: 40px;
+    font-size: 30px;
+    text-align: right;
     background-color: rgba(49, 171, 204, 0.7);
     border: black solid 2px;
     border-radius: 4px;
@@ -122,7 +129,7 @@ border-radius: 10px;
 
 .button{
 background-color: rgba(255, 97, 89, 0.7);
-width: 150px;
+width: 50%;
 height: 55px;
 font-size: 25px;
 border-radius: 20px;
@@ -139,6 +146,18 @@ border-radius: 20px;
   border-radius: 70px;
   border: black solid 5px;
 }
+.autorization td, input{
+  font-size: 20px;
+}
+.autorization table{
+      background: rgba(49, 171, 204, 0.7);
+  text-align: right;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: black solid 2px;
+}
+
 
 .progress_bar{
     width: 20%;
@@ -231,11 +250,12 @@ border-radius: 20px;
 	text-align: center;
 	position: absolute;
     top: 15px;
-    right: 180px;
+    right: 250px;
 }
 
 .hello{
     position: absolute;
-    top: -5px;
+    top: 12px;
     left: 10px;
+    font-size: 30px;
 }

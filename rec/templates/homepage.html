@@ -8,7 +8,7 @@
 </head>
 {% block body %}
     <body link="black">
-    <div class="hello"><h1>Hello, {{ user.username }}!</h1></div>
+    <div class="hello">Hello, {{ user.username }}!</div>
     <div class="back"></div>
     <div class="menu">
     <ul>
@@ -28,7 +28,7 @@
 
         <p {% if ended == 0 %}class="timer"{% endif %}>{{ '%02d'|format((time/3600)|int) }}:{{ '%02d'|format((time%3600)/60|int) }}:{{ '%02d'|format((time%60)|int) }} </p>
         <progress max = {{ norms }} value = {{ (user.worktime/3660 + time/3660)|round(2) }}></progress>
-        <p> Time spended alltime: {{ (user.worktime/3600)|round(2) + (time/3660)|round(2)}} / {{ norms | round }} hours</p>
+        <p> Time spended alltime: {{ (user.worktime/3600 + time/3660)|round(1)}} / {{ norms | round }} hours</p>
 
     </div>
 
@@ -48,8 +48,6 @@
                     <option value="Assignment" {% if activity == 'Assignment' %} selected="selected" {% endif %}>Assignment</option>
                     <option value="Overtime" {% if activity == 'Overtime' %} selected="selected" {% endif %}>Overtime</option>
                 </select>
-            <br>
-            <br>
             <input type="submit" name="activity" value="Change" formaction="{{ url_for('rec.activity') }}">
         </form>
     </div>

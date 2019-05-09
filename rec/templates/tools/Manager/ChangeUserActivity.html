@@ -10,7 +10,7 @@
     <th>Total worktime</th>
     <th>Today worktime</th>
     <th>Salary</th>
-    <th>Action</th>
+    <th colspan="2">Action</th>
 </tr>
 
 {% for worker in workers %}
@@ -18,13 +18,16 @@
     <td>{{ worker.login }}</td>
     <td>{{ worker.username }}</td>
     <td>{{ worker.role }}</td>
-    <td>{{ '%02d'|format((worker.worktime/3600)|int) }}:{{ '%02d'|format((worker.worktime%3600)/60|int) }}:{{ '%02d'|format((worker.worktime%60)|int) }}</td>
-    <td>{% if worker.login in workdays %}
+    {% if worker.login in workdays %}
         {% set workertime = workdays[worker.login].time %}
-        {{ '%02d'|format((workertime/3600)|int) }}:{{ '%02d'|format((workertime%3600)/60|int) }}:{{ '%02d'|format((workertime%60)|int) }}
+        {% set ended = workdays[worker.login].ended %}
+    <td {% if ended == 0 %}class = 'timer'{% endif %}>{{ '%02d'|format((worker.worktime/3600)|int) }}:{{ '%02d'|format((worker.worktime%3600)/60|int) }}:{{ '%02d'|format((worker.worktime%60)|int) }}</td>
+    <td {% if ended == 0 %}class = 'timer'{% endif %}>{{'%02d'|format((workertime/3600)|int) }}:{{ '%02d'|format((workertime%3600)/60|int) }}:{{ '%02d'|format((workertime%60)|int)}}</td>
     {% else %}
-        00:00:00
-    {% endif %}</td>
+        <td>00:00:00</td>
+
+    {% endif %}
+
     <td>{{ worker.salary | round(2)}}</td>
 
         <form method="post" action="{{ url_for('Manager.ChangeUserActivity') }}">
@@ -40,9 +43,9 @@
                     <option value="Sick" {% if activity == 'Sick' %} selected="selected" {% endif %}>Sick</option>
                     <option value="Assignment" {% if activity == 'Assignment' %} selected="selected" {% endif %}>Assignment</option>
                     <option value="Overtime" {% if activity == 'Overtime' %} selected="selected" {% endif %}>Overtime</option>
-                </select>
+                </select></td>
 
-            <input type="submit" value="Change">
+            <td><input type="submit" value="Change">
             </td>
         </form>
 

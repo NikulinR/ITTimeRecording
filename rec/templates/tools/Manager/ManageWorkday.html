@@ -17,11 +17,10 @@
     <td>{{ worker.login }}</td>
     <td>{{ worker.username }}</td>
     <td>{{ worker.role }}</td>
-    <td>{{ '%02d'|format((worker.worktime/3600)|int) }}:{{ '%02d'|format((worker.worktime%3600)/60|int) }}:{{ '%02d'|format((worker.worktime%60)|int) }}</td>
-    {% if worker.login in workdays %}
+{% if worker.login in workdays %}
         {% set workertime = workdays[worker.login].time %}
         {% set ended = workdays[worker.login].ended %}
-
+    <td {% if ended == 0 %}class = 'timer'{% endif %}>{{ '%02d'|format((worker.worktime/3600)|int) }}:{{ '%02d'|format((worker.worktime%3600)/60|int) }}:{{ '%02d'|format((worker.worktime%60)|int) }}</td>
     <td {% if ended == 0 %}class = 'timer'{% endif %}>{{'%02d'|format((workertime/3600)|int) }}:{{ '%02d'|format((workertime%3600)/60|int) }}:{{ '%02d'|format((workertime%60)|int)}}</td>
     {% else %}
         <td>00:00:00</td>

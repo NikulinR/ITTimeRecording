@@ -4,7 +4,9 @@
     <form method="POST" action="." class="form">
         {{ form.csrf_token }}
           <p>Overtime date:</p>
+        <table>
         {{ render_field(form.date, class="date") }}
+            </table>
           <br><input type="submit" value="Order" class="button">
     </form>
 </div>
