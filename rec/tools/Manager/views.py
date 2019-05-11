@@ -8,8 +8,7 @@ from rec import forms
 
 mod = Blueprint('Manager', __name__, url_prefix='/manager')
 date = datetime.date.today()
-day = Day(date, 1, 1)
-cal = Calendar.get_month(day)
+
 menu = []
 
 @mod.before_request
@@ -20,6 +19,9 @@ def before_request():
     g.user = None
     if 'user_login' in session:
         g.user = User.query.get(session['user_login'])
+        global cal
+        day = Day(date, 1, 1, g.user.login)
+        cal = Calendar.get_month(day, g.user.login)
 
     if g.user.role != "Manager":
         return redirect('/')
@@ -36,6 +38,8 @@ def before_request():
         menu.append(['Workday managing', 'ManageWorkday'])
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
+
+
 
     session['now'] = time.monotonic()
     quant = session['time']
@@ -60,6 +64,7 @@ def ChangeUserActivity():
     workdict = {}
     for workday in workdays:
         workdict[workday.user] = workday
+
     return render_template("tools/Manager/ChangeUserActivity.html",
                            user=g.user,
                            menu=menu,
@@ -134,6 +139,8 @@ def Delete():
 @mod.route('/begin_day', methods=['GET', 'POST'])
 def begin_day():
     if ('userlogin' in request.form):
+        session['start'] = time.monotonic()
+        session['now'] = time.monotonic()
         g.user.start_dev_day(request.form['userlogin'], 'Standart')
     return ManageWorkday()
 

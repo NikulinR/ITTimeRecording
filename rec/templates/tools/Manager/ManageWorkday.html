@@ -2,7 +2,8 @@
 
 <div class = "usertable">
 <p>Workers</p>
-<table border="2px">
+<input type = 'text' id = 'search-text' onkeyup='tableSearch()' placeholder="Search...">
+<table border="2px" id = 'info-table'>
 <tr>
     <th>Login</th>
     <th>Name</th>
@@ -29,12 +30,13 @@
     <td>{{ worker.salary | round(2)}}</td>
 
         <form method="post">
-            <input type="text" name="userlogin" value="{{ worker.login }}" hidden>
-            <td><input type="submit" value="Begin" formaction={{ url_for("Manager.begin_day") }}></td>
-            <td><input type="submit" value="End" formaction={{ url_for("Manager.end_day") }}></td>
+            <input type="text"  name="userlogin" value="{{ worker.login }}" hidden>
+            <td><input type="submit" class="startday" value="Begin" formaction={{ url_for("Manager.begin_day") }}></td>
+            <td><input type="submit" class="endday" value="End" formaction={{ url_for("Manager.end_day") }}></td>
         </form>
 
 </tr>
 {% endfor %}
 </table>
 </div>
+<script src="{{ url_for('static', filename='js/table.js') }}"></script>

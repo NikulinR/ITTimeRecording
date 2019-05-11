@@ -5,6 +5,21 @@ body{
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.dayman{
+    position:absolute;
+   top: 300px;
+    left: 30px;
+    z-index: 1;
+}
+
+.startday{
+    background-color: rgba(49, 204, 107, 0.9);
+}
+
+.endday{
+    background-color: rgba(255, 97, 89, 0.9);
+}
+
 .usertable{
     width: 100%;
     background-color: rgba(49, 171, 204, 0.7);
@@ -15,6 +30,8 @@ body{
     border: black solid 2px;
     overflow-x: auto;
     display: block;
+    position: relative;
+    top: 40px;
 }
 .usertable table {
         width: 100%;
@@ -45,9 +62,16 @@ input{
 }
 
 .usertable input[type="submit"]{
-    background-color: rgba(255, 97, 89, 0.7);
+    font-weight: bolder;
     width: 100%;
     height: 30px;
+    font-size: 16px;
+}
+.usertable input[type="text"]{
+    font-weight: bolder;
+    position: absolute;
+    top: 10px;
+    left: 3px;
     font-size: 16px;
 }
 
@@ -224,9 +248,42 @@ border-radius: 20px;
 	color: #CC235A;
 }
 
+.calendar .action select{
+
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+	font-family: monospace;
+	font-weight: bold;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.calendar .vacancy .action select{
+    color: #CC235A;
+}
+
+.calendar .vacancy:hover .action{
+	display : block;
+}
+
+.calendar .vacancy:hover .date{
+	display : none;
+}
+
+.calendar .workday:hover .action{
+	display : block;
+}
+
+.calendar .workday:hover .date{
+	display : none;
+}
+
 .calendar td{
 	background-color: rgba(49, 171, 204, 0.7);
 	font-size: 30px;
+    width: 40px;
+    height: 40px;
 	font-family: monospace;
 	font-weight: bold;
 }
@@ -239,7 +296,7 @@ border-radius: 20px;
 }
 
 .calendar .today{
-	border: dashed;
+	border: solid 1px red;
 }
 
 .exit{
@@ -258,4 +315,13 @@ border-radius: 20px;
     top: 12px;
     left: 10px;
     font-size: 30px;
+}
+
+.flashes{
+    position: absolute;
+    bottom: 5px;
+    right:5px;
+    background-color: #ff6159;
+    border: black solid 2px;
+    border-radius: 4px;
 }

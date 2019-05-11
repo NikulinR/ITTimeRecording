@@ -5,6 +5,7 @@ import time
 
 Normative = 40
 RubsPerHour = 250
+VacationsPermittion = 5
 #Quant = 5
 
 
@@ -24,8 +25,19 @@ class Activity(db.Model):
 class Holyday(db.Model):
     __tablename__='BANK_HOLYDAYS'
     date = db.Column('DATE', db.INTEGER, primary_key=True)
+    user = db.Column('USER', db.String(20), primary_key=True)
     desc = db.Column('DESCRIPTION', db.String(40))
 
+    def __init__(self, date, user = "ALL"):
+        if not Holyday.query.filter_by(date=date, user=user).first():
+            self.user = user
+            self.date = date
+            db.session.add(self)
+            db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
 class Workday(db.Model):
     __tablename__='WORKDAY'
@@ -115,9 +127,30 @@ class User(db.Model):
             workday.activity = activity
         db.session.commit()
 
+    def order_overtime(self, date):
+        newDay = Workday.query.filter_by(user=self.login, date=date).first()
+        if newDay:
+            newDay.activity = 'Overtime'
+        else:
+            newDay = Workday(self.login, date, 'Overtime')
+            db.session.add(newDay)
+        db.session.commit()
+        return newDay
+
+    def replace_worktime(self, date):
+        newDay = Workday.query.filter_by(user=self.login, date=date).first()
+        if newDay:
+            newDay.activity = 'Vacation'
+
+        else:
+            newDay = Workday(self.login, date, 'Vacation')
+            db.session.add(newDay)
+        db.session.commit()
+        return newDay
+
 
 class Developer(User):
-    def order_overtime(self, date, activity):
+    def ohhh(self, date, activity):
         newDay = Workday(self.login, date, activity)
         db.session.add(newDay)
         db.session.commit()
@@ -150,7 +183,6 @@ class Manager(User):
         if target:
             db.session.delete(target)
             db.session.commit()
-
 
 def fix_all_func(Quant):
     users = User.query.all()

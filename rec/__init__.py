@@ -36,5 +36,5 @@ app.register_blueprint(man.views.mod)
 #куда это засунуть не знаю пока
 import rec.models as mod
 import time
-mod.fix_all_func(5)
+#mod.fix_all_func(5)
 

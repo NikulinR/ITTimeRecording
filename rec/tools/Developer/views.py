@@ -8,8 +8,7 @@ from rec import forms
 
 mod = Blueprint('Developer', __name__, url_prefix='/dev')
 date = datetime.date.today()
-day = Day(date, 1, 1)
-cal = Calendar.get_month(day)
+cal = ''
 menu = []
 
 @mod.before_request
@@ -20,6 +19,9 @@ def before_request():
     g.user = None
     if 'user_login' in session:
         g.user = User.query.get(session['user_login'])
+        global cal
+        day = Day(date, 1, 1, g.user.login)
+        cal = Calendar.get_month(day, g.user.login)
 
     if g.user.role != "Developer":
         return redirect('/')
@@ -40,7 +42,11 @@ def before_request():
     session['now'] = time.monotonic()
     quant = session['time']
     session['time'] = session['now'] - session['start']
-    fix_all_func(session['time'] - quant)
+    workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
+    if (workday.ended == 1):
+        session['time'] = 0
+    else:
+        fix_all_func(session['time'] - quant)
     #g.user.fix_time(session['time'] - quant)
 
 @mod.route('/TakeOvertime', methods=['GET', 'POST'])
@@ -50,7 +56,9 @@ def TakeOvertime():
     workdict = {}
     for workday in workdays:
         workdict[workday.user] = workday
-    return render_template("tools/Developer/TakeOvertime.html",
+
+
+    return render_template("homepage.html",
                            user=g.user,
                            menu=menu,
                            date=date,

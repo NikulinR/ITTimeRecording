@@ -1,19 +1,20 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User, Normative, Workday
+from rec.models import User, Normative, Workday, Holyday, VacationsPermittion, fix_all_func
 from rec.decorators import requires_login
 from rec import forms
 import time
 
 mod = Blueprint('rec', __name__, url_prefix='/home')
+date = datetime.date.today()
+
+menu = []
 
 @mod.route('/me/')
 @requires_login
 def home():
-    date = datetime.date.today()
-    day = Day(date, 1, 1)
-    cal = Calendar.get_month(day)
+    global menu
     menu = []
     if g.user.role == 'Developer':
         menu.append(['Order overtime', 'TakeOvertime'])
@@ -43,14 +44,22 @@ def before_request():
     """
     pull user's profile from the database before every request are treated
     """
-    if 'start' in session:
-        session['now'] = time.monotonic()
-        session['time'] = session['now'] - session['start']
 
     g.user = None
     if 'user_login' in session:
         g.user = User.query.get(session['user_login'])
 
+        global cal
+        day = Day(date, 1, 1, g.user.login)
+        cal = Calendar.get_month(day, g.user.login)
+        session['now'] = time.monotonic()
+        quant = session['time']
+        session['time'] = session['now'] - session['start']
+        workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
+        if (workday.ended == 1):
+            session['time'] = 0
+        else:
+            fix_all_func(session['time'] - quant)
 
 @mod.route('/sudo_exit', methods=['POST', 'GET'])
 def sudo_exit():
@@ -77,6 +86,7 @@ def login():
             now = time.monotonic()
             session['now'] = now
             session['start'] = start
+            session['time'] = 0
             if Workday.query.filter_by(date=datetime.date.today().toordinal(), user=user.login).first():
                 session["workday_id"] = Workday.query.filter_by(date=datetime.date.today().toordinal(), user=user.login).first().id
             else:
@@ -91,6 +101,53 @@ def login():
 def activity():
     g.user.choose_activity(request.form['activity'])
     return redirect('/')
+
+@mod.route('/begin_day', methods=['GET', 'POST'])
+def begin_day():
+    session['start'] = time.monotonic()
+    session['now'] = time.monotonic()
+    g.user.start_day('Standart')
+    return home()
+
+@mod.route('/end_day', methods=['GET', 'POST'])
+def end_day():
+    g.user.end_day()
+    return home()
+
+@mod.route('/TakeOvertime', methods=['GET', 'POST'])
+def TakeOvertime():
+    tyear = int(request.form['year'])
+    tmonth = int(request.form['month'])
+    tdate = int(request.form['date'])
+    target = datetime.date(tyear, tmonth, tdate)
+    if target.toordinal() > datetime.date.today().toordinal():
+        vacation = Holyday.query.filter_by( user=g.user.login, date=target.toordinal()).first()
+        if vacation:
+            vacation.delete()
+        g.user.order_overtime(target.toordinal())
+    return redirect('/')
+
+@mod.route('/ReplaceWorkday', methods=['GET', 'POST'])
+def ReplaceWorkday():
+    tyear = int(request.form['year'])
+    tmonth = int(request.form['month'])
+    tdate = int(request.form['date'])
+    target = datetime.date(tyear, tmonth, tdate)
+
+    if target.toordinal() > datetime.date.today().toordinal():
+        if Holyday.query.filter(Holyday.user == g.user.login,
+                                    Holyday.date >= datetime.datetime(date.year,
+                                                                      date.month,
+                                                                      1).toordinal(),
+                                    Holyday.date < datetime.datetime(date.year,
+                                                                     date.month+1,
+                                                                     1).toordinal()).count() < VacationsPermittion:
+            vacation = Holyday(target.toordinal(), g.user.login)
+            g.user.replace_worktime(target.toordinal())
+        else:
+            flash('You reserved too much vacations!')
+    return redirect('/')
+
 
 @mod.route('/exit', methods=['POST', 'GET'])
 def exit():

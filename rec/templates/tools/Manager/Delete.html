@@ -1,7 +1,8 @@
 {% include "homepage.html" %}
 <div class = "usertable">
 <p>Workers</p>
-<table border="2px">
+<input type = 'text' id = 'search-text' onkeyup='tableSearch()' placeholder="Search...">
+<table border="2px" id = 'info-table'>
 <tr>
     <th>Login</th>
     <th>Name</th>
@@ -30,7 +31,7 @@
     <td>
         <form method="post" action="{{ url_for('Manager.Delete') }}">
             <input type="text" name="userlogin" value="{{ worker.login }}" hidden>
-            <input type="submit" value="Delete">
+            <input  type="submit" class="button" value="Delete">
         </form>
     </td>
     {% endif %}
@@ -38,3 +39,4 @@
 {% endfor %}
 </table>
 </div>
+<script src="{{ url_for('static', filename='js/table.js') }}"></script>

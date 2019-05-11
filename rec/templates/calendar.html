@@ -21,10 +21,38 @@
                         <div class="today">
                     {% endif %}
                     {% if day.form == "Vacancy" %}
-                        <div class="vacancy">{{ day.date }}</div>
+                        <div class="vacancy">
+                            <div class="date">{{ day.date }}</div>
+                            <div class='action' hidden>
+                                <form method="post" action={{ url_for('rec.TakeOvertime') }}>
+                                    <input type="text" name = 'year' value={{ date.year }} hidden>
+                                    <input type="text" name = 'month' value={{ date.month }} hidden>
+                                    <input type="text" name = 'date' value={{ day.date }} hidden>
+                                    <select onchange=this.form.submit()>
+                                        <option>{{ day.date }}</option>
+                                        <option>Order overtime</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+
                     {% endif %}
                     {% if day.form == "Work" %}
-                        <div>{{ day.date }}</div>
+                        <div class="workday">
+                            <div class="date">{{ day.date }}</div>
+                            <div class='action' hidden>
+                                <form method="post" action={{ url_for('rec.ReplaceWorkday') }}>
+                                    <input type="text" name = 'year' value={{ date.year }} hidden>
+                                    <input type="text" name = 'month' value={{ date.month }} hidden>
+                                    <input type="text" name = 'date' value={{ day.date }} hidden>
+                                    <select onchange=this.form.submit()>
+                                        <option>{{ day.date }}</option>
+                                        <option>Replace workday</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+
                     {% endif %}
                     {% if  day.date == date.day %}
                         </div>

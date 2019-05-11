@@ -1,10 +1,12 @@
 import datetime
+from rec.models import Holyday, Workday
 
 class Day:
-    def __init__(self, date, form, name):
+    def __init__(self, date, form, name, user):
         self.date = date
         self.form = form
         self.name = name
+        self.user = user
 
 class Calendar:
     months_names = {
@@ -17,7 +19,7 @@ class Calendar:
         pass
 
     @staticmethod
-    def get_month(day):
+    def get_month(day, user):
         month = [
             [0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0],
@@ -38,23 +40,32 @@ class Calendar:
             for j in range(7):
                 if i == 0 and j >= datetime.date(day.date.year,
                                                  day.date.month,
-                                                 1).weekday():
+                                                 1).weekday() or (i > 0 and date <= month_day_count):
+                    holydays = Holyday.query.filter_by(date=datetime.date(day.date.year,
+                                                                          day.date.month,
+                                                                          date).toordinal(),
+                                                       user=user).first()
+
+                    global_holydays = Holyday.query.filter_by(date=datetime.date(1,
+                                                                                 day.date.month,
+                                                                                 date).toordinal(),
+                                                              user='ALL').first()
+
+                    workdays = Workday.query.filter_by(date=datetime.date(day.date.year,
+                                                                          day.date.month,
+                                                                          date).toordinal(),
+                                                       user=user).first()
                     if datetime.date(day.date.year,
                                      day.date.month,
-                                     date).weekday() in [5, 6]:
-                        month[i][j] = Day(date, 'Vacancy', 'Day')
+                                     date).weekday() in [5, 6] or holydays or global_holydays:
+
+                        month[i][j] = Day(date, 'Vacancy', 'Day', user)
                     else:
-                        month[i][j] = Day(date, 'Work', 'Day')
+                        month[i][j] = Day(date, 'Work', 'Day', user)
+                    if workdays:
+                        if workdays.activity == 'Overtime':
+                            month[i][j] = Day(date, 'Work', 'Day', user)
                     date += 1
-                else:
-                    if i > 0 and date <= month_day_count:
-                        if datetime.date(day.date.year,
-                                         day.date.month,
-                                         date).weekday() in [5, 6]:
-                            month[i][j] = Day(date, 'Vacancy', 'Day')
-                        else:
-                            month[i][j] = Day(date, 'Work', 'Day')
-                        date += 1
         return month
 
 

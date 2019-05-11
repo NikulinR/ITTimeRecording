@@ -31,7 +31,21 @@
         <p> Time spended alltime: {{ (user.worktime/3600 + time/3660)|round(1)}} / {{ norms | round }} hours</p>
 
     </div>
-
+    <div class = 'dayman'>
+        <form method="post">
+        <table>
+            <tr>
+                <input type="text" name="userlogin" value="{{ user.login }}" hidden>
+                <td>
+                   <input class="startday" type="submit" value="Start day" formaction={{ url_for("rec.begin_day") }}>
+                </td>
+                <td>
+                    <input class="endday" type="submit" value="End day" formaction={{ url_for("rec.end_day") }}>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
     {% include "calendar.html" %}
     <div class="activity">
         <form method="post">
@@ -48,11 +62,11 @@
                     <option value="Assignment" {% if activity == 'Assignment' %} selected="selected" {% endif %}>Assignment</option>
                     <option value="Overtime" {% if activity == 'Overtime' %} selected="selected" {% endif %}>Overtime</option>
                 </select>
-            <input type="submit" name="activity" value="Change" formaction="{{ url_for('rec.activity') }}">
+            <input type="submit" name="activity" value="Change" formaction='{{ url_for('rec.activity') }}'>
         </form>
     </div>
     <form method="post">
-    <input class="exit" type="submit" name="exit" value="Exit" formaction="{{ url_for('rec.exit') }}">
+    <input class="exit" type="submit" name="exit" value="Exit" formaction='{{ url_for('rec.exit') }}'>
     </form>
     <script src="{{ url_for('static', filename='js/time.js') }}"></script>
 
