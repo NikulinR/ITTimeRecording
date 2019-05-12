@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, flash, g, session, redirect, url_for
 import datetime
 from rec.mycalendar import Calendar, Day
-from rec.models import User, Workday, Manager, Developer, fix_all_func
+from rec.models import User, Workday, Manager, Developer, fix_all_func, calculate
 import time
 from rec.decorators import requires_login
 from rec import forms
@@ -104,7 +104,9 @@ def Register():
         if not User.query.filter_by(login=form.login.data).first():
             g.user.register_new_user(form.login.data, form.password.data, form.username.data, form.role.data)
             flash("User registered")
-        flash("User already exists")
+        else:
+            flash("User alredy exist!")
+
 
     return render_template("tools/Manager/Register.html",
                            user=g.user,
@@ -149,6 +151,11 @@ def end_day():
     if ('userlogin' in request.form):
         g.user.end_dev_day(request.form['userlogin'])
     return ManageWorkday()
+
+@mod.route('/calculate', methods=['GET', 'POST'])
+def calculate_all():
+    calculate()
+    return redirect(url_for("rec.home"))
 
 
 @mod.route('/exit', methods=['POST', 'GET'])

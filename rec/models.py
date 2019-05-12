@@ -66,15 +66,6 @@ class Workday(db.Model):
         self.ended = 0
         db.session.commit()
 
-    def calculate(self):
-        user = User.query.filter_by(login=self.user).first()
-        if user:
-            act_coeff = Activity.query.filter_by(name=self.activity).first().coeff
-            user.salary += act_coeff * self.time/3600 * RubsPerHour
-            db.session.commit()
-            return act_coeff * self.time/3600 * RubsPerHour
-
-
 class User(db.Model):
     __tablename__ = 'USER'
     login = db.Column('LOGIN', db.String(20), primary_key=True)
@@ -127,12 +118,12 @@ class User(db.Model):
             workday.activity = activity
         db.session.commit()
 
-    def order_overtime(self, date):
+    def order_overtime(self, date, actvity):
         newDay = Workday.query.filter_by(user=self.login, date=date).first()
         if newDay:
             newDay.activity = 'Overtime'
         else:
-            newDay = Workday(self.login, date, 'Overtime')
+            newDay = Workday(self.login, date, actvity)
             db.session.add(newDay)
         db.session.commit()
         return newDay
@@ -190,4 +181,18 @@ def fix_all_func(Quant):
         user.fix_time(Quant)
     #time.sleep(Quant)
     #fix_all_func()
+def calculate():
+    users = User.query.all()
+    today = datetime.date.today()
+    firstday = datetime.date(today.year, today.month, 1)
+    for user in users:
+        days = Workday.query.filter(Workday.user == user.login,
+                                    Workday.date > firstday.toordinal(),
+                                    Workday.date != today.toordinal())
+        for day in days:
+            act_coeff = Activity.query.filter_by(name=day.activity).first().coeff
+            user.salary += act_coeff * day.time/3600 * RubsPerHour
+            day.time = 0
+        #user.worktime = 0
+    db.session.commit()
 

@@ -25,6 +25,7 @@
     <td {% if ended == 0 %}class = 'timer'{% endif %}>{{'%02d'|format((workertime/3600)|int) }}:{{ '%02d'|format((workertime%3600)/60|int) }}:{{ '%02d'|format((workertime%60)|int)}}</td>
     {% else %}
         <td>00:00:00</td>
+        <td>00:00:00</td>
 
     {% endif %}
     <td>{{ worker.salary | round(2)}}</td>

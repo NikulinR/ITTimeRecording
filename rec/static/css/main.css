@@ -325,3 +325,13 @@ border-radius: 20px;
     border: black solid 2px;
     border-radius: 4px;
 }
+
+.calc{
+    position: absolute;
+    bottom: 5px;
+    right:40%;
+    left:40%;
+    background-color: #ff6159;
+    border: black solid 2px;
+    border-radius: 4px;
+}

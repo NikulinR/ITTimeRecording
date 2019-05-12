@@ -61,6 +61,7 @@ def before_request():
         else:
             fix_all_func(session['time'] - quant)
 
+
 @mod.route('/sudo_exit', methods=['POST', 'GET'])
 def sudo_exit():
     session.clear()
@@ -124,7 +125,9 @@ def TakeOvertime():
         vacation = Holyday.query.filter_by( user=g.user.login, date=target.toordinal()).first()
         if vacation:
             vacation.delete()
-        g.user.order_overtime(target.toordinal())
+            g.user.order_overtime(target.toordinal(), 'Standart')
+        else:
+            g.user.order_overtime(target.toordinal(), 'Overtime')
     return redirect('/')
 
 @mod.route('/ReplaceWorkday', methods=['GET', 'POST'])
@@ -153,7 +156,5 @@ def ReplaceWorkday():
 def exit():
     g.user.fix_time(session['time'])
     g.user.end_day()
-    day = Workday.query.filter_by(id=session["workday_id"]).first()
-    day.calculate()
     session.clear()
     return redirect('/')
