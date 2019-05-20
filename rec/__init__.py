@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import sqlite3
 from flask import Flask, g, redirect, render_template, session, url_for, request
+import sqlalchemy
 from flask_sqlalchemy import SQLAlchemy
 import os
 import threading
@@ -11,10 +12,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = 'gjr39dkjn344_!67#'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'timerec.db')
-print(os.path.join(basedir, 'timerec.db'))
+
 db = SQLAlchemy(app)
 
-
+print(os.path.join(basedir, 'timerec.db'))
 
 
 @app.errorhandler(404)

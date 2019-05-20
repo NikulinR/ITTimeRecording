@@ -1,11 +1,11 @@
 {% include "homepage.html" %}
 <div class="fields">
     {% from "macros.html" import render_field %}
-    <form method="POST" action="." class="form">
-        {{ form.csrf_token }}
+    <form method="POST" action={{ url_for("Developer.TakeOvertime") }} class="form">
+
           <p>Overtime date:</p>
         <table>
-        {{ render_field(form.date, class="date") }}
+            <input type="date" name="date">
             </table>
           <br><input type="submit" value="Order" class="button">
     </form>

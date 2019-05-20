@@ -1,4 +1,5 @@
 from rec import db
+import sqlalchemy
 import datetime
 import threading
 import time
@@ -8,6 +9,7 @@ RubsPerHour = 250
 VacationsPermittion = 5
 #Quant = 5
 
+#db.create_all()
 
 class Activity(db.Model):
     __tablename__ = 'ACTIVITY'
@@ -49,6 +51,7 @@ class Workday(db.Model):
     activity = db.Column('ACTIVITY_NAME', db.String(15), db.ForeignKey('ACTIVITY.NAME'), nullable=False)
     user = db.Column('USER_LOGIN', db.String(20), db.ForeignKey('USER.LOGIN'), nullable=False)
     ended = db.Column('ENDED', db.INTEGER)
+    calculated = db.Column('CALCULATED', db.INTEGER)
 
     def __init__(self, user, date, activity):
         if not Workday.query.filter_by(date=date, user=user).first():
@@ -57,6 +60,7 @@ class Workday(db.Model):
             self.time = 0
             self.activity = activity
             self.ended = 0
+            self.calculated = 0
             db.session.add(self)
             db.session.commit()
             print('Workday '+str(self.date)+' for '+self.user+' is added')
@@ -210,16 +214,16 @@ def fix_all_func(Quant):
 def calculate():
     users = User.query.all()
     today = datetime.date.today()
-    firstday = datetime.date(today.year, today.month, 1)
+    #firstday = datetime.date(today.year, today.month, 1)
     for user in users:
         days = Workday.query.filter(Workday.user == user.login,
-                                    Workday.date > firstday.toordinal(),
+                                    Workday.calculated == 0,
                                     Workday.date != today.toordinal())
         for day in days:
             if Activity.query.filter_by(name=day.activity).first():
                 act_coeff = Activity.query.filter_by(name=day.activity).first().coeff
                 user.salary += act_coeff * day.time/3600 * RubsPerHour
-                day.time = 0
+                day.calculated = 1
         #user.worktime = 0
     db.session.commit()
 

@@ -38,6 +38,7 @@ def before_request():
         menu.append(['Workday managing', 'ManageWorkday'])
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
+        menu.append(['Calculate salaries', 'Calculate'])
 
 
 
@@ -153,8 +154,8 @@ def end_day():
         g.user.end_dev_day(request.form['userlogin'])
     return ManageWorkday()
 
-@mod.route('/calculate', methods=['GET', 'POST'])
-def calculate_all():
+@mod.route('/Calculate', methods=['GET', 'POST'])
+def Calculate():
     calculate()
     return redirect(url_for("rec.home"))
 

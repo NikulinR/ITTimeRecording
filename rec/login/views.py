@@ -11,7 +11,7 @@ date = datetime.date.today()
 
 menu = []
 
-@mod.route('/me/')
+@mod.route('/me/', methods=['POST', 'GET'])
 @requires_login
 def home():
     global menu
@@ -23,6 +23,7 @@ def home():
         menu.append(['Workday managing', 'ManageWorkday'])
         menu.append(['Registration of new worker', 'Register'])
         menu.append(['Delete user', 'Delete'])
+        menu.append(['Calculate salaries', 'Calculate'])
 
     workdays = Workday.query.filter_by(date=date.toordinal())
     workdict = {}
@@ -100,23 +101,27 @@ def login():
     return render_template("login/login.html", form=form)
 
 @mod.route('/activity', methods=['POST', 'GET'])
+@requires_login
 def activity():
     g.user.choose_activity(request.form['activity'])
     return redirect('/')
 
 @mod.route('/begin_day', methods=['GET', 'POST'])
+@requires_login
 def begin_day():
     session['start'] = time.monotonic()
     session['now'] = time.monotonic()
     g.user.start_day('Standart')
-    return home()
+    return redirect('/')
 
 @mod.route('/end_day', methods=['GET', 'POST'])
+@requires_login
 def end_day():
     g.user.end_day()
-    return home()
+    return redirect('/')
 
 @mod.route('/TakeOvertime', methods=['GET', 'POST'])
+@requires_login
 def TakeOvertime():
     tyear = int(request.form['year'])
     tmonth = int(request.form['month'])
@@ -136,6 +141,7 @@ def TakeOvertime():
     return redirect('/')
 
 @mod.route('/ReplaceWorkday', methods=['GET', 'POST'])
+@requires_login
 def ReplaceWorkday():
     tyear = int(request.form['year'])
     tmonth = int(request.form['month'])
@@ -163,8 +169,8 @@ def ReplaceWorkday():
 
 
 @mod.route('/exit', methods=['POST', 'GET'])
+@requires_login
 def exit():
-    g.user.fix_time(session['time'])
     g.user.end_day()
     session.clear()
     return redirect('/')

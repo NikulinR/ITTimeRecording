@@ -9,10 +9,6 @@
 {% block body %}
     {% set ended = workdays[user.login].ended %}
 
-    <form class="calc" method="post" action={{ url_for("Manager.calculate_all") }}>
-        <input type = 'submit' value="Calculate all salaries">
-    </form>
-
     <body link="black">
     <div class="hello">Hello, {{ user.username }}!</div>
     <div class="back"></div>
@@ -54,7 +50,7 @@
                 </td>
                 <td>
                     {% if ended %}
-                        <input class="endday" type="submit" value="End day" >
+                        <input class="endday" type="submit" value="End day" formaction={{ url_for("rec.home") }}>
                     {%else%}
                         <input class="endday" type="submit" value="End day" formaction={{ url_for("rec.end_day") }}>
                     {%endif%}
