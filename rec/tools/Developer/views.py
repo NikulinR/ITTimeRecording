@@ -66,7 +66,7 @@ def TakeOvertime():
                            date=date,
                            cal=cal,
                            norms=session['normative'],
-                           time=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           curtime=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
                            form=form,
                            workdays=workdict)
 

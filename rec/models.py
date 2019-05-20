@@ -216,9 +216,10 @@ def calculate():
                                     Workday.date > firstday.toordinal(),
                                     Workday.date != today.toordinal())
         for day in days:
-            act_coeff = Activity.query.filter_by(name=day.activity).first().coeff
-            user.salary += act_coeff * day.time/3600 * RubsPerHour
-            day.time = 0
+            if Activity.query.filter_by(name=day.activity).first():
+                act_coeff = Activity.query.filter_by(name=day.activity).first().coeff
+                user.salary += act_coeff * day.time/3600 * RubsPerHour
+                day.time = 0
         #user.worktime = 0
     db.session.commit()
 
