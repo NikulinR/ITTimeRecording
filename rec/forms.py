@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, DateField
+from wtforms import StringField, PasswordField, DateField, SelectField
 import wtforms.validators as valid
 
 
@@ -13,7 +13,7 @@ class OvertimeForm(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
-    login = StringField('Login', [valid.DataRequired()])
-    password = PasswordField('Password', [valid.DataRequired()])
-    role = StringField('Role', [valid.DataRequired()])
+    login = StringField('Login', [valid.DataRequired(), valid.Length(min=4, max=20)])
+    password = PasswordField('Password', [valid.DataRequired(), valid.Length(min=2, max=20)])
+    role = SelectField('Role', choices=[('Manager', 'Manager'), ('Developer', 'Developer')], default='Developer')
     username = StringField('Username', [valid.DataRequired()])

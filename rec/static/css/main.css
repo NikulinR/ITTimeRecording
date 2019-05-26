@@ -1,5 +1,6 @@
 body{
 	background-color: #57FFC6;
+	#background: url("ERZHAN.gif");
     background: url("work.jpg");
     background-size: 900px 900px;
 	font-family: Georgia, 'Times New Roman', Times, serif;
@@ -23,9 +24,9 @@ body{
 .usertable{
     width: 100%;
     background-color: rgba(49, 171, 204, 0.7);
-
+	
     margin-top: 310px;
-
+	#background: url("ERZHAN.gif");
     border-radius: 3px;
     border: black solid 2px;
     overflow-x: auto;
@@ -112,6 +113,10 @@ input{
   border: black solid 2px;
 }
 
+.fields select{
+    width: 100%;
+}
+
 .fields input{
     width: 100%;
 }
@@ -161,6 +166,8 @@ border-radius: 20px;
 
 .autorization {
   background: rgba(49, 171, 204, 0.7);
+  #background: url("zub.jpg");
+  background-size: 400px 400px;
   text-align: center;
   width: 400px;
     margin-left: auto;

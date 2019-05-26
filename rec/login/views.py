@@ -57,7 +57,9 @@ def before_request():
         quant = session['time']
         session['time'] = session['now'] - session['start']
         workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
-        if (workday.ended == 1):
+        if not workday:
+            session['time'] = 0
+        elif workday.ended:
             session['time'] = 0
         #workday = Workday.query.filter_by(date=date.toordinal(), user=g.user.login).first()
 

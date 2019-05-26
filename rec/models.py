@@ -68,7 +68,7 @@ class Workday(db.Model):
     def stop(self):
         self.ended = 1
         db.session.commit()
-        print('Workday ' + str(self.date) + ' for ' + self.user + ' is ' + str(self.ended) + '. Time: ' + str(self.time))
+        print('Workday ' + str(self.date) + ' for ' + self.user + ' is fixed. Time: ' + str(self.time))
 
     def start(self):
         if self.activity != 'Sick':
@@ -112,16 +112,23 @@ class User(db.Model):
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
         if workday:
             workday.stop()
-            db.session.commit()
             #print('Workday ' + workday.date + ' for ' + workday.user + ' is ' + str(workday.ended) + '. Time: ' + str(workday.time))
 
-    def fix_time(self, time):
+    def fix_time(self, ctime):
+        unfixed = Workday.query.filter(Workday.user == self.login, Workday.date < datetime.date.today().toordinal(), Workday.ended == 0)
         workday = Workday.query.filter_by(user=self.login, date=datetime.date.today().toordinal()).first()
         if workday and workday.ended == 0:
-            workday.time += time
-            self.worktime += time
+            workday.time += ctime
+            self.worktime += ctime
             db.session.commit()
             print('Workday ' + str(workday.date) + ' for ' + workday.user + ' is fixed. Time: ' + str(workday.time))
+        if unfixed:
+            for item in unfixed:
+                item.stop()
+        #now = datetime.datetime.today().time()
+        #if now.hour == 23 and now.minute == 59 and now.second == 59:
+
+
 
 
     def choose_activity(self, activity):

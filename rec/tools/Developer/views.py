@@ -82,11 +82,12 @@ def TakeOvertime():
 
         if target.toordinal() > datetime.date.today().toordinal():
             vacation = Holyday.query.filter_by(user=g.user.login, date=target.toordinal()).first()
-            if vacation:
+            if vacation or (target.weekday() in [0, 1, 2, 3, 4]):
                 vacation.delete()
                 g.user.order_overtime(target.toordinal(), 'Standart')
             else:
                 g.user.order_overtime(target.toordinal(), 'Overtime')
+
         return redirect('/')
 
 @mod.route('/exit', methods=['POST', 'GET'])
