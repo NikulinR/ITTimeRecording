@@ -1,0 +1,25 @@
+{% include "homepage.html" %}
+<div class="usertable">
+    <p>Workdays</p>
+    <table>
+    <tr>
+        <th>Time</th>
+        <th>Date</th>
+        <th>Activity</th>
+        <th>Ended</th>
+        <th>Calculated</th>
+    </tr>
+    {% for day in alltime %}
+
+        <tr>
+            <td {% if day.ended == 0 and day.date == (date.year|string+'-'+date.month|string+'-'+date.day|string) %}class = 'timer'{% endif %}>{{ '%02d'|format((day.time/3600)|int) }}:{{ '%02d'|format((day.time%3600)/60|int) }}:{{ '%02d'|format((day.time%60)|int) }}</td>
+            <td>{{ day.date }}</td>
+            <td>{{ day.activity }}</td>
+            <td>{{ day.ended }}</td>
+            <td>{{ day.calculated }}</td>
+        </tr>
+
+    {% endfor %}
+    </table>
+</div>
+

@@ -78,6 +78,10 @@
             <input type="submit" name="activity" value="Change" formaction='{{ url_for('rec.activity') }}'>
         </form>
     </div>
+
+    <form method="post">
+    <input class="stats" type="submit" name="stats" value="Statistics" formaction='{{ url_for('rec.Stats') }}'>
+    </form>
     <form method="post">
     <input class="exit" type="submit" name="exit" value="Exit" formaction='{{ url_for('rec.exit') }}'>
     </form>

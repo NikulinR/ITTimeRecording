@@ -6,6 +6,11 @@ body{
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.stats{
+    position:absolute;
+    top: 350px;
+}
+
 .dayman{
     position:absolute;
    top: 300px;

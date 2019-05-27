@@ -4,6 +4,7 @@ from rec.mycalendar import Calendar, Day
 from rec.models import User, Normative, Workday, Holyday, VacationsPermittion, fix_all_func
 from rec.decorators import requires_login
 from rec import forms
+import copy
 import time
 
 mod = Blueprint('rec', __name__, url_prefix='/home')
@@ -168,6 +169,42 @@ def ReplaceWorkday():
         g.user.take_sick(target.toordinal())
 
     return redirect('/')
+
+
+@mod.route('/stats', methods=['GET', 'POST'])
+@requires_login
+def Stats():
+    global menu
+    menu = []
+    if g.user.role == 'Developer':
+        menu.append(['Order overtime', 'TakeOvertime'])
+    if g.user.role == 'Manager':
+        menu.append(['Change user activity', 'ChangeUserActivity'])
+        menu.append(['Workday managing', 'ManageWorkday'])
+        menu.append(['Registration of new worker', 'Register'])
+        menu.append(['Delete user', 'Delete'])
+        menu.append(['Calculate salaries', 'Calculate'])
+
+    alltime_days = copy.deepcopy(Workday.query.filter_by(user=g.user.login).all())
+    for day in alltime_days:
+        daydate = datetime.date.fromordinal(day.date)
+        day.date = str(daydate.year)+'-'+str(daydate.month)+'-'+str(daydate.day)
+
+    workdays = Workday.query.filter_by(date=date.toordinal())
+    workdict = {}
+    for workday in workdays:
+        workdict[workday.user] = workday
+
+    return render_template("stats.html",
+                           user=g.user,
+                           menu=menu,
+                           date=date,
+                           cal=cal,
+                           norms=session['normative'],
+                           curtime=Workday.query.filter_by(id=session["workday_id"]).first().time + session['time'],
+                           workdays=workdict,
+                           alltime = alltime_days)
+
 
 
 @mod.route('/exit', methods=['POST', 'GET'])

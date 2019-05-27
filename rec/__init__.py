@@ -39,10 +39,10 @@ app.register_blueprint(man.views.mod)
 #куда это засунуть не знаю пока
 import rec.models as mod
 import time
-quant = 1
+quant = 1000
 def commit(quant):
     while(True):
-        mod.fix_all_func(quant)
+        mod.fix_all_func(quant/1000)
         time.sleep(quant)
 
 timer = threading.Thread(target=commit, args=(quant,))
