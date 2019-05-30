@@ -52,6 +52,8 @@ else:
                         FOREIGN KEY(`ACTIVITY_NAME`) REFERENCES `ACTIVITY`(`NAME`) ON UPDATE CASCADE
                     );""")
     cursor.execute("""INSERT INTO `USER` VALUES ('Manager','123','Manager','Manager', 0, 0);""")
+    cursor.execute("""INSERT INTO `USER` VALUES ('Pasha','123','Manager','Pavel', 0, 0);""")
+    cursor.execute("""INSERT INTO `USER` VALUES ('Petr','123','Developer','Petro', 0, 0);""")
     cursor.execute("""INSERT INTO `ACTIVITY` VALUES ('Sick', 0.8);""")
     cursor.execute("""INSERT INTO `ACTIVITY` VALUES ('Assignment', 1.5);""")
     cursor.execute("""INSERT INTO `ACTIVITY` VALUES ('Standard', 1.0);""")
