@@ -155,7 +155,8 @@ class User(db.Model):
             newDay.activity = 'Vacation'
         else:
             newDay = Workday(self.login, date, 'Vacation')
-        newDay.time = Normative/7 * 3600
+        #newDay.time = Normative/7 * 3600
+        newDay.time = 0
         newDay.ended = 1
         db.session.add(newDay)
         db.session.commit()
@@ -230,10 +231,11 @@ def calculate():
         for day in days:
             if Activity.query.filter_by(name=day.activity).first():
                 act_coeff = Activity.query.filter_by(name=day.activity).first().coeff
-                if day.activity != 'Sick':
+                if day.activity != 'Sick' and day.activity != 'Vacancy':
                     user.salary += act_coeff * day.time/3600 * RubsPerHour
                 else:
                     user.salary += act_coeff * 6 * RubsPerHour
+
                 day.calculated = 1
         #user.worktime = 0
     db.session.commit()
