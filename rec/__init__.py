@@ -87,6 +87,9 @@ app.register_blueprint(man.views.mod)
 import rec.models as mod
 import time
 quant = 1
+mod.fix_all_func(quant/1)
+time.sleep(quant)
+
 def commit(quant):
     while(True):
         mod.fix_all_func(quant/1)
